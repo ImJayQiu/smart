@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 2 | Log in</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="/src/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<%= stylesheet_link_tag 'application' %>
+<!-- Ionicons -->
+<link rel="stylesheet" href="/src/icon/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/src/dist/css/AdminLTE.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="/src/plugins/iCheck/square/blue.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="/src/ie/html5shiv.min.js"></script>
+  <script src="/src/ie/respond.min.js"></script>
+  <![endif]-->
+<%= csrf_meta_tags %>
+</head>
+
+<body class="hold-transition login-page">
+
+<div class="login-box">
+
+	<div class="login-logo">
+		<%= image_tag "/src/img/logo.png", size: "280x177" , alt: "DPU LOGO" %>
+		<br/>
+		<h4>泰国博仁大学 - 中国东盟国际学院</h4>
+		<h5>学生信息管理系统</h5>
+	</div>
+
+	<%= yield %>
+
+	<!-- /.login-box -->
+
+	<!-- jQuery 2.2.0 --> 
+	<!-- script src="src/plugins/jQuery/jQuery-2.2.0.min.js"></script -->
+	<%= javascript_include_tag "application" %>
+
+	<!-- Bootstrap 3.3.6 -->
+	<script src="/src/bootstrap/js/bootstrap.min.js"></script>
+	<!-- iCheck -->
+	<script src="/src/plugins/iCheck/icheck.min.js"></script>
+	<script>
+$(function () {
+		$('input').iCheck({
+checkboxClass: 'icheckbox_square-blue',
+radioClass: 'iradio_square-blue',
+increaseArea: '20%' // optional
+});
+		});
+	</script>
+	</body>
+	</html>

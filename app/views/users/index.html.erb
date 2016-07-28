@@ -1,0 +1,58 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">Data Table With Full Features</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Surname</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Sex</th>
+					<th>Passport</th>
+					<th>Operations</th>
+					<th>Operations</th>
+					<th>Operations</th>
+				</tr>
+			</thead>
+
+			<tbody>
+			<% @users.each do |user| %>
+				<tr>
+				<td><%= user.code %></td>
+				<td><%= user.surname %></td>
+				<td><%= user.name %></td>
+				<td><%= user.email %></td>
+				<td><%= user.sex %></td>
+				<td><%= user.passport %></td>
+				<td><%= link_to 'Show', user %></td>
+				<td><%= link_to 'Edit', edit_user_path(user) %></td>
+				<td><%= link_to 'Del', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th>Code</th>
+					<th>Email</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Sex</th>
+					<th>Passport</th>
+					<th>Operations</th>
+					<th>Operations</th>
+					<th>Operations</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- /.box-body -->
+</div>
+<!-- /.box -->
+
+<%= link_to 'New User', new_user_path %>
+
