@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'cancancan', '~> 1.10'
 
-gem 'devise'
+gem 'devise', '~> 3.5.3'
 
 gem "font-awesome-rails"
 

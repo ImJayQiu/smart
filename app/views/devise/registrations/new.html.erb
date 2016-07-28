@@ -8,6 +8,12 @@
 		<%= devise_error_messages! %>
 
 	<div class="form-group has-feedback">
+		<%= f.text_field :code, autofocus: true, placeholder: "Code", class: "form-control" %>
+		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+		<br />
+	</div>
+
+	<div class="form-group has-feedback">
 		<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
 		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		<br />
