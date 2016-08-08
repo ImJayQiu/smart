@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609113522) do
+ActiveRecord::Schema.define(version: 20160805102812) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "code",                   limit: 255
+    t.string   "code",                   limit: 255,              null: false
     t.string   "name",                   limit: 255
-    t.string   "surname",                limit: 255
-    t.string   "sex",                    limit: 255
+    t.string   "ename",                  limit: 255
+    t.string   "gender",                 limit: 255
     t.string   "passport",               limit: 255
     t.date     "birthday"
     t.string   "city",                   limit: 255
     t.string   "province",               limit: 255
     t.string   "country",                limit: 255
-    t.string   "role",                   limit: 255
+    t.string   "role",                   limit: 255,              null: false
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "email",                  limit: 255, default: "", null: false
@@ -36,9 +36,35 @@ ActiveRecord::Schema.define(version: 20160609113522) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "address",                limit: 255
+    t.string   "phone",                  limit: 45
+    t.string   "major",                  limit: 45,               null: false
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
+    t.date     "enroll",                                          null: false
   end
 
+  add_index "users", ["code"], name: "code_UNIQUE", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "ustatuses", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.date     "date"
+    t.string   "status",     limit: 255
+    t.string   "remark",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "visas", force: :cascade do |t|
+    t.string   "passport",   limit: 255
+    t.date     "due"
+    t.string   "remark",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
 end

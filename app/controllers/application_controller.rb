@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
+
+
 	# Prevent CSRF attacks by raising an exception.
 	# For APIs, you may want to use :null_session instead.
 
+	before_action :set_locale
 	before_action :authenticate_user!
 	before_action :configure_permitted_parameters, if: :devise_controller?
+
 
 	protect_from_forgery with: :exception
 
@@ -12,6 +16,20 @@ class ApplicationController < ActionController::Base
 
 	$site_title = "DPU-CAIC"
 
+	rescue_from CanCan::AccessDenied do |exception|
+		respond_to do |format|
+			format.json { head :forbidden }
+			format.html { redirect_to  request.referrer, :alert => exception.message }
+		end
+	end
+
+	def set_locale
+		if params[:locale] && I18n.available_locales.include?( params[:locale].to_sym )
+			session[:locale] = params[:locale]
+		end
+
+		I18n.locale = session[:locale] || I18n.default_locale
+	end
 
 	protected
 
@@ -29,4 +47,5 @@ class ApplicationController < ActionController::Base
 			"login"
 		end
 	end
+
 end

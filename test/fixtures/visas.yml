@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  passport: MyString
+  due: MyString
+  remark: MyString
+
+two:
+  passport: MyString
+  due: MyString
+  remark: MyString

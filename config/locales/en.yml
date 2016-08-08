@@ -1,23 +1,75 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  idle_code: '*Remark：These is no one using this CODE in the system，please check the CODE again !'
+  idle_passport: '*Remark：These is no one using this PASSPORT NO. in the system，please check the PASSPORT NO. again !'
+  ustatus_management: 'Student & Staff Status'
+  Date: 'Date'
+  Status: 'Status'
+  password_note: 'Please input password twice in the text fields below, otherwise all changes will not save !'
+  enroll_date: 'Enroll Date'
+  main_menu: 'MAIN NAVIGATION'
+  Deans_management: 'Deans Management'
+  New_user: 'Add New User'
+  New_visa_record: 'New Record'
+  Import_visa_records: 'Import Records'
+  Error: 'Import errors'
+  Remark: 'Remark'
+  due_date: 'Visa Expire Date' 
+  visa_management: 'Visa Management'
+  csv_example: 'CSV file example' 
+  select_import_file: "Select CSV file to import"
+  Import: 'Click to import'
+  DPU: 'Dhurakij Pundit University'
+  CAIC: 'CHINA-ASEAN International College (CAIC)'
+  SIS: 'Students Information System'
+  Show: 'Show' 
+  Edit: 'Edit'
+  del_confirm: 'The record will be deleted, are you sure ?'
+  Del: 'Del'
+  Create: 'Create'
+  User: 'User'
+  Profile: 'Profile'
+  Submit: 'Submit'
+  Country: 'Country'
+  Province: 'Province'
+  City: 'City'
+  Address: 'Address'
+  Phone: 'Phone'
+  Operations: 'Operations' 
+  Ename: 'English Name'
+  Name: 'Chinese Name'
+  Birthday: 'Birthday'
+  Email: 'Email'
+  Gender: 'Gender'
+  Passport: 'Passport'
+  Password_setting: 'Input Login Password'
+  Password_confirm: 'Confirm Lgoin Password'
+  Logout: 'Logout'
+  Users_management: 'Users Management'
+  Students_management: 'Students Management'
+  Lecturers_management: 'Lecturers Management'
+  Admins_management: 'Admin_management'
+  unique: 'The %{var} has already been used !'
+  Code: 'Code'
+  Major: 'Major'
+  Role: 'User Group'
+  personal_info: 'Personal Info.'
+  contact_info: 'Contact Info.'
+  login_info: 'Login Info.'
+  upload_photo: 'Upload Photo'
+  back_landing: 'Back To Landing Page'
+  permission_denied: 'Sorry ! Permission denied！'
+  data_imported: 'Data Imported !'
+  Import_users: "Import Users"
+
+
+  users:
+    students:
+      Code: 'Student Code'
+    lecturers:
+      Code: 'Lecturer Code'
+  activerecord:
+    errors:
+      messages:
+        unique: 'The %{var} has already been used !'
+   

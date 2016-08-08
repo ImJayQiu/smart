@@ -1,0 +1,8 @@
+<h1>Editing Visa</h1>
+
+<% if can? :manage, :visa%>
+<%= render 'form' %>
+<% else %>
+<% t('permission_denied') %>
+	<% end # if can? :manage, :visa%>
+

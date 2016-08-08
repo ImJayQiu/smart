@@ -1,19 +1,51 @@
 class Ability
 	include CanCan::Ability
 
+
 	def initialize(user)
 		# Define abilities for the passed in user here. For example:
 		#
 		user ||= User.new # guest user (not logged in)
-		if user.role == "admin"
+
+		if user.role == "Admin"
 			can :manage, :all
-		end
-		
-		if user.role == "lecturer"
+			# can :list, [:students, :lecturers, :deans, :admins]
+			cannot :del, user, :code => user.code
 		end
 
-		if user.role == "student"
+		if user.role == "Dean"
+			can :manage, :all                                  # can CRUD users model 
+			cannot :list, :admins                              # list all user menu
+			cannot :manage, User, role: "Admin"                # can not touch admin user 
+			cannot [:edit,:del], User, role: "Dean"            # can not edit and del Deans 
+			can :edit, user, id: user.id                       # can edit self
 		end
+
+		if user.role == "Lecturer"
+			can :list, [:students, :lecturers]         # can list students and lecturers
+			can :show, user                                    # can show all users 
+			cannot :show, user, role: ['Dean', 'Admin']        # cannot show Admin and Dean users 
+			cannot [:edit, :del], user                         # cannot edit any users 
+			can :edit, user, id: user.id                       # can edit self
+		end
+
+		if user.role == "Student"
+			cannot :manage, :all                               # cannot do anything 
+			can [:show, :edit], user, :code == user.code	   # can edit self 
+			#cannot :manage, Visa #, :passport == user.passport	   # can view self visa 
+			#can :manage, Visa, :passport == user.passport	   # can view self visa 
+		end
+
+		if user.role == "Staff"
+			cannot :manage, :all                               # cannot do anything 
+			can :list, [:students, :lecturers, :visas, :ustatus]         # can list students and lecturers
+			cannot [:show, :edit, :del], user                   
+			can [:show, :edit], user, :code == user.code	   # can edit self 
+			can :manage, :visa	                               # can manage visa 
+			can :manage, :ustatus	                           # can manage users status 
+		end
+
+
 		#
 		# The first argument to `can` is the action you are giving the user
 		# permission to do.

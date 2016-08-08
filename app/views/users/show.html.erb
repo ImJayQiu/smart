@@ -1,59 +1,157 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Code:</strong>
-  <%= @user.code %>
-</p>
+<% if can? :show, @user %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+	<section class="content">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						<%= image_tag @user.avatar.url(:thumb) %>
+						<%= t('personal_info')%>
+					</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<!--form role="form" -->
+				<div class="box-body">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+					<div class="form-group">
+						<%= t('Code') %>: 
+						<%= @user.code %>
+					</div>
+					<div class="form-group">
+						<%= t('Ename') %>: 
+						<%= @user.ename %>
+					</div>
+					<div class="form-group">
+						<%= t('Name') %>: 
+						<%= @user.name %>
+					</div>
+					<div class="form-group">
+						<%= t('Gender') %>:
+						<%= @user.gender %>
+					</div>
+					<div class="form-group">
+						<%= t('Birthday') %>:
+						<%= @user.birthday %>
+					</div>
+					<div class="form-group">
+						<%= t('Major') %>:
+						<%= @user.major %>
+					</div>
+					<div class="form-group">
+						<%= t('Role') %>:
+						<%= @user.role %>
+					</div>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @user.surname %>
-</p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @user.sex %>
-</p>
+				</div>
+				<!-- /form -->
+			</div>
+		</div>
 
-<p>
-  <strong>Passport:</strong>
-  <%= @user.passport %>
-</p>
+		<!-- right column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('contact_info')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<!-- form role="form" -->
+				<div class="box-body">
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
+					<div class="form-group">
+						<%= t('Country') %>:
+						<%= @user.country %>
+					</div>
+					<div class="form-group">
+						<%= t('Province') %>:
+						<%= @user.province %>
+					</div>
+					<div class="form-group">
+						<%= t('City') %>:
+						<%= @user.city %>
+					</div>
+					<div class="form-group">
+						<%= t('Address') %>:
+						<%= @user.address %>
+					</div>
+					<div class="form-group">
+						<%= t('Phone') %>:
+						<%= @user.phone %>
+					</div>
+					<div class="form-group">
+						<%= t('Passport') %>:
+						<%= @user.passport %>
+					</div>
 
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
+				</div>
+				<!-- /form -->
+			</div>
+		</div>
 
-<p>
-  <strong>Province:</strong>
-  <%= @user.province %>
-</p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @user.country %>
-</p>
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Operations')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<table class="table text-center">
+							<tbody>
+							<tr>
+								<td>
+									<%= button_to t('Edit'), edit_user_path(@user), method: "get" %>
+								</td>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
+								<% if can? :list, :students %>
+								<td>
+									<%= button_to t('Students_management'), students_users_path, method: "get" %>
+								</td>
+								<% end # if can? :list, :students %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+								<% if can? :list, :lecturers %>
+								<td>
+									<%= button_to t('Lecturers_management'), lecturers_users_path, method: "get" %>
+								</td>
+								<% end # if can? :list, :lecturers %>
+
+								<% if can? :list, :deans %>
+								<td>
+									<%= button_to t('Deans_management'), deans_users_path, method: "get" %>
+								</td>
+								<% end # if can? :list, :deans %>
+
+								<td>
+									<%= button_to t('back_landing'), root_path, method: "get" %>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div><!-- end class row -->
+</section>
+
+<% else %>
+
+<%= t('permission_denied') %>
+
+	<% end # if can? :view, user %>
+
+

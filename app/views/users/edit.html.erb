@@ -1,6 +1,15 @@
-<h1>Editing User</h1>
+<h1>
+	<%= t('Edit')%>
+	<%= t('personal_info')%>
+</h1>
 
-<%= render 'form' %>
+<% if can? :edit, @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+	<%= render 'form' %>
+
+<% else %>
+
+	<%= t("permission_denied") %>
+
+<% end %>
+

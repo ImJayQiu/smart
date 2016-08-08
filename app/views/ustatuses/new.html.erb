@@ -1,0 +1,13 @@
+<h1><%= t('ustatus_management') %></h1>
+<h1><%= t('New_record') %></h1>
+
+<% if can? :manage, :ustatus %>
+
+	<%= render 'form' %>
+
+<% else %>
+
+	<%= t('permission_denied') %>
+
+<% end # if can? :manage, :ustatus%>
+

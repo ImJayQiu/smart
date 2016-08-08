@@ -1,0 +1,84 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><%= t('ustatus_management') %></h3>
+	</div>
+	<!-- /.box-header -->
+	<% if can? :create, Ustatus %>
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_record'), new_ustatus_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_records'), import_ustatuses_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<% end # if can? :create, Ustatus %>
+
+
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th><%=t('Code')%></th>
+					<th><%=t('Date')%></th>
+					<th><%=t('Status')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</thead>
+
+			<tbody>
+			<% @ustatuses.each do |ustatus| %>
+				<tr>
+				<td><%= ustatus.code %></td>
+				<td><%= ustatus.date %></td>
+				<td><%= ustatus.status %></td>
+				<td>
+					<% if can? :show, ustatus %>
+						<%= link_to t('Show'), ustatus %> | 
+				<% end %>
+					<% if can? :edit, ustatus %>
+						<%= link_to t('Edit'), edit_ustatus_path(ustatus) %> | 
+				<% end %>
+					<% if can? :del, ustatus %>
+						<%= link_to t('Del'), ustatus, method: :delete, data: { confirm: t('del_confirm') } %>
+				<% end %>
+				</td>
+			</tr>
+		<% end %>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th><%=t('Code')%></th>
+					<th><%=t('Date')%></th>
+					<th><%=t('Status')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- /.box-body -->
+
+	<% if can? :create, Ustatus %>
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_record'), new_ustatus_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_records'), import_ustatuses_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<% end # if can? :create, Ustatus %>
+
+
+</div>
+<!-- /.box -->
+

@@ -1,0 +1,10 @@
+
+<div class="user-panel">
+	<div class="pull-left image">
+		<%= image_tag current_user.avatar.url(:thumb), class: "img-circle", alt: current_user.name %>
+	</div>
+	<div class="pull-left info">
+		<p><%= "#{current_user.name} | #{current_user.ename}" %></p>
+		<a href="#"><i class="fa fa-circle text-success"></i><%= current_user.code %></a>
+	</div>
+</div>

@@ -6,7 +6,20 @@ gem 'cancancan', '~> 1.10'
 
 gem 'devise', '~> 3.5.3'
 
+# icons
 gem "font-awesome-rails"
+
+#remove space in form
+gem "strip_attributes"
+
+#upload photos
+gem 'paperclip', '~> 5.0.0'
+
+#import csv or excel
+#gem 'roo', '~> 2.4.0'
+#gem 'roo-xls'
+#gem 'iconv'
+gem 'csv-importer'
 
 # Interface template
 #gem 'bootstrap-sass',       '3.2.0.0'
@@ -21,6 +34,7 @@ gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'mysql2'
+gem 'rails-i18n'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

@@ -1,0 +1,26 @@
+
+<section class="content">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('personal_info')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<form role="form">
+					<div class="box-body">
+
+						<div class="form-group">
+							<%= f.label t('Email') %>
+							<%= f.email_field :email, class: 'form-control' %>
+						</div>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

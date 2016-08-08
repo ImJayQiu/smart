@@ -1,0 +1,85 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><%= t("Deans_management")%></h3>
+	</div>
+
+	<% if can? :list, :deans %>
+
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_user'), new_user_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_users'), import_users_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th><%=t('Code')%></th>
+					<th><%=t('Name')%></th>
+					<th><%=t('Major')%></th>
+					<th><%=t('Gender')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</thead>
+
+			<tbody>
+			<% @deans.each do |user| %>
+				<tr>
+				<td><%= user.code %></td>
+				<td><%= user.name %></td>
+				<td><%= user.major %></td>
+				<td><%= user.gender %></td>
+				<td>
+					<% if can? :show, user %>
+						<%= link_to t('Show'), user %> 
+				<% end %>
+					<% if can? :edit, user %>
+						|<%= link_to t('Edit'), edit_user_path(user) %> 
+			<% end %>
+					<% if can? :del, user %>
+						|<%= link_to t('Del'), user, method: :delete, data: { confirm: t('del_confirm') } %>
+			<% end %>
+				</td>
+			</tr>
+		<% end %>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th><%=t('Code')%></th>
+					<th><%=t('Name')%></th>
+					<th><%=t('Major')%></th>
+					<th><%=t('Gender')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- /.box-body -->
+
+	<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_user'), new_user_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_users'), import_users_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+
+</div>
+<!-- /.box -->
+
+<% end # if can? :list, :deans %>

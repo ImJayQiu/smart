@@ -1,0 +1,57 @@
+
+<% if can? :list, :students %>
+	<li class="treeview">
+<a href="#">
+	<i class="fa fa-users"></i><span><%= t("Users_management") %></span> <i class="fa fa-angle-left pull-right"></i>
+</a>
+<ul class="treeview-menu">
+
+	<!-- Students Management -->
+	<% if can? :list, :students %>
+		<li>
+	<%= link_to students_users_path do %>
+		<i class="fa fa-graduation-cap"></i><%= t("Students_management") %>
+<% end # link_to students_users_path do %>
+		</li>
+	<% end #can mng students %>
+
+	<!-- Lecturers Management -->
+	<% if can? :list, :lecturers %>
+		<li>
+	<%= link_to lecturers_users_path do %>
+		<i class="fa fa-user"></i><%= t("Lecturers_management") %>
+<% end %>
+	</li>
+	<% end # if can? :manage, :lecturers %>
+
+	<!-- Deans Management -->
+	<% if can? :list, :deans %>
+		<li>
+	<%= link_to deans_users_path do %>
+		<i class="fa fa-user-secret"></i><%= t("Deans_management") %>
+<% end %>
+	</li>
+	<% end # if can? :manage, :deans %>
+
+	<!-- Admins Management -->
+	<% if can? :list, :admins %>
+		<li>
+	<%= link_to admins_users_path do %>
+		<i class="fa fa-user-md"></i><%= t("Admins_management") %>
+<% end %>
+	</li>
+	<% end # if can? :manage, :admins %>
+
+	<!-- CSV Import Users -->
+	<% if can? :import, :users %>
+		<li>
+	<%= link_to import_users_path do %>
+		<i class="fa fa-user-plus"></i><%= t("Import_users") %>
+<% end %>
+	</li>
+	<% end # if can? :import, :users %>
+</ul>
+</li>
+
+<% end # if can? :list, :students %>
+

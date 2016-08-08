@@ -1,21 +1,34 @@
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title">Data Table With Full Features</h3>
+		<h3 class="box-title"><%= t('Users_management')%></h3>
 	</div>
-	<!-- /.box-header -->
+
+	<% if can? :list, :all_users %>
+
+		<!-- /.box-header -->
+
+	<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_user'), new_user_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_users'), import_users_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+
 	<div class="box-body">
 		<table id="example1" class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th>Code</th>
-					<th>Surname</th>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Sex</th>
-					<th>Passport</th>
-					<th>Operations</th>
-					<th>Operations</th>
-					<th>Operations</th>
+					<th><%=t('Code')%></th>
+					<th><%=t('Name')%></th>
+					<th><%=t('Major')%></th>
+					<th><%=t('Gender')%></th>
+					<th><%=t('Operations')%></th>
 				</tr>
 			</thead>
 
@@ -23,36 +36,51 @@
 			<% @users.each do |user| %>
 				<tr>
 				<td><%= user.code %></td>
-				<td><%= user.surname %></td>
 				<td><%= user.name %></td>
-				<td><%= user.email %></td>
-				<td><%= user.sex %></td>
-				<td><%= user.passport %></td>
-				<td><%= link_to 'Show', user %></td>
-				<td><%= link_to 'Edit', edit_user_path(user) %></td>
-				<td><%= link_to 'Del', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= user.major %></td>
+				<td><%= user.gender %></td>
+				<td>
+					<% if can? :show, user %>
+						<%= link_to t('Show'), user %> 
+				<% end %>
+					<% if can? :edit, user %>
+						|<%= link_to t('Edit'), edit_user_path(user) %> 
+			<% end %>
+					<% if can? :del, user %>
+						|<%= link_to t('Del'), user, method: :delete, data: { confirm: t('del_confirm') } %>
+			<% end %>
+				</td>
 			</tr>
 		<% end %>
 			</tbody>
 
 			<tfoot>
 				<tr>
-					<th>Code</th>
-					<th>Email</th>
-					<th>Name</th>
-					<th>Surname</th>
-					<th>Sex</th>
-					<th>Passport</th>
-					<th>Operations</th>
-					<th>Operations</th>
-					<th>Operations</th>
+					<th><%=t('Code')%></th>
+					<th><%=t('Name')%></th>
+					<th><%=t('Major')%></th>
+					<th><%=t('Gender')%></th>
+					<th><%=t('Operations')%></th>
 				</tr>
 			</tfoot>
 		</table>
 	</div>
 	<!-- /.box-body -->
+	<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_user'), new_user_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_users'), import_users_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+
+
 </div>
 <!-- /.box -->
 
-<%= link_to 'New User', new_user_path %>
-
+<% end # if can? :list, :all_users %>

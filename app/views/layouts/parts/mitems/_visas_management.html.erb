@@ -1,0 +1,31 @@
+
+<% if can? :list, :visas %>
+
+	<li class="treeview">
+<a href="#">
+	<i class="fa fa-book"></i><span><%= t("visa_management") %></span> <i class="fa fa-angle-left pull-right"></i>
+</a>
+<ul class="treeview-menu">
+	<li>
+	<%= link_to visas_path do %>
+		<i class="fa fa-book"></i><%= t("visa_management") %>
+<% end %>
+	</li>
+	<% if can? :manage, :visas %>
+		<li>
+	<%= link_to new_visa_path do %>
+		<i class="fa fa-calendar-plus-o"></i><%= t('New_record') %>
+<% end %>
+	</li>
+	<li>
+	<%= link_to import_visas_path do %>
+		<i class="fa fa-calendar"></i><%= t('Import_records') %>
+<% end %>
+	</li>
+
+	<% end # if can? :manage, :visas %>
+</ul>
+</li>
+
+<% end # if can? :list, :visas %>
+
