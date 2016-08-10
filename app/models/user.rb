@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+
+	has_many :cschedules, primary_key: :code , foreign_key: :lecturer
+
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	#

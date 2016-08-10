@@ -1,11 +1,10 @@
-require "csv"
-
 class UsersController < ApplicationController
 
+	require "csv"
+	layout "data"
 
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-	layout "data"
 
 	# GET /users
 	# GET /users.json
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
 		@users = User.select(:id, :code, :name, :major, :gender, :role, :passport).all
 
 	end
-	
+
 	def deans
 		@deans = User.where(role: "dean").select(:id, :code, :name, :major, :gender, :role, :passport).all
 	end
@@ -57,6 +56,7 @@ class UsersController < ApplicationController
 		import.run!
 
 		@valid_header = import.valid_header?  # => false
+		@import_status = import.report.status
 		@message = import.report.message # => "The following columns are required: email"
 		@error = import.report.invalid_rows.map { |row| [row.model, row.errors] }
 		@report = import.report.success? # => true
@@ -121,6 +121,6 @@ class UsersController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def user_params
-		params.require(:user).permit(:enroll, :password_confirmation, :password, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role)
+		params.require(:user).permit(:des, :enroll, :password_confirmation, :password, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role)
 	end
 end

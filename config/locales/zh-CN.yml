@@ -1,14 +1,56 @@
 ---
 zh-CN:
+  index_html: <i class="fa fa-list"></i>
+  personal_des: 个人简介
+  ctotal_score: 课程考核总分
+  cschedule_scores_exam: 考试分数设置
+  cschedule_scores_ac: 课程分数设置
+  clecturer: 授课教师
+  class_code: 开课代码
+  cterm_code: 学期代码
+  cc_code:  课程代码
+  ccredit:  课程学分
+  cweekday: 开课日 
+  cstime: 上课时间
+  cetime: 下课时间
+  croom: 教室
+  catt: 出勤
+  chomework: 作业
+  cproject:	项目
+  creport: 报告
+  cmid:	半期考试
+  cfin: 期末考试
+  cquiz: 课堂测验
+  cschedule_time: 开课时间
+  cschedules_management: 开课 & 排课管理
+  cother: '其他测验'
+  remaining_days: "剩余天数"
+  semester_days: "学期总天数"
+  semester_year: '学年'
+  semester_term: '学期'
+  semester_sdate: '学期开始日期'
+  semester_edate: '学期结束日期'
+  semester_code: '学期编号'
+  semester_management: '学期管理'
+  coutline_management: '课程大纲设置'
+  Cname: '课程名称(中)'
+  Cename: '课程名称(英)'
+  Ctype: '课程类型'
+  Ccode: '课程代码'
+  Cdes: '课程说明及介绍'
+  students_qty: '在校生总数'
+  lecturers_qty: '在职教师总数'
   idle_code: '*注意：当前系统内无人使用该编号(学号/工号)，请仔细检查编号(学号/工号)是否有误！'
   idle_passport: '*注意：当前系统内无人持有该护照号码，请仔细检查护照号码是否有误！'
   ustatus_management: '学籍/员工状态管理'
   password_note: '请在以下密码栏内输入两次密码，否则所做的更改将不会保存！'
-  enroll_date: '注册时间'
+  enroll_date: '入学注册日期'
   main_menu: '主导航栏'
   Deans_management: '系主任管理'
   New_user: '添加新用户'
   New_record: '添加记录'
+  Edit_record: '编辑内容'
+  Show_record: '查看内容'
   Import_records: '批量导入数据'
   Error: '导入错误'
   Remark: '备注'
@@ -20,6 +62,7 @@ zh-CN:
   SIS: '学生资讯管理系统'
   Show: '查看' 
   Edit: '编辑'
+  Back: '返回'
   Del: '删除'
   del_confirm: '删除后将无法还原，是否确认删除该记录？'
   Create: '添加'
@@ -38,7 +81,7 @@ zh-CN:
   Email: '电子邮件'
   Gender: '性别'
   Passport: '护照号码'
-  Password_setting: '设置登陆密码'
+  Password_setting: '初始登陆密码'
   Password_confirm: '确认登陆密码'
   Logout: '退出系统'
   Users_management: '用户管理'

@@ -1,0 +1,2 @@
+module CoutlinesHelper
+end

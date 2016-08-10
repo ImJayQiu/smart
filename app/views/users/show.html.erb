@@ -1,3 +1,5 @@
+<h3><%= t('Users_management') %> - <%= t('Show_record') %></h3>
+
 <p id="notice"><%= notice %></p>
 
 <% if can? :show, @user %>
@@ -87,8 +89,18 @@
 						<%= @user.phone %>
 					</div>
 					<div class="form-group">
+						<%= t('Email') %>:
+						<%= @user.email %>
+					</div>
+
+					<div class="form-group">
 						<%= t('Passport') %>:
 						<%= @user.passport %>
+					</div>
+					
+					<div class="form-group">
+						<%= t('enroll_date') %>:
+						<%= @user.enroll %>
 					</div>
 
 				</div>
@@ -115,19 +127,19 @@
 								</td>
 
 								<% if can? :list, :students %>
-								<td>
+									<td>
 									<%= button_to t('Students_management'), students_users_path, method: "get" %>
 								</td>
 								<% end # if can? :list, :students %>
 
 								<% if can? :list, :lecturers %>
-								<td>
+									<td>
 									<%= button_to t('Lecturers_management'), lecturers_users_path, method: "get" %>
 								</td>
 								<% end # if can? :list, :lecturers %>
 
 								<% if can? :list, :deans %>
-								<td>
+									<td>
 									<%= button_to t('Deans_management'), deans_users_path, method: "get" %>
 								</td>
 								<% end # if can? :list, :deans %>

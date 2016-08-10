@@ -4,7 +4,7 @@ class CreateUstatuses < ActiveRecord::Migration
       t.string :code
       t.date :date
       t.string :status
-      t.string :remark
+      t.text :remark
 
       t.timestamps null: false
     end

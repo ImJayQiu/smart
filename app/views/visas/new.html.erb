@@ -1,4 +1,13 @@
-<h1>New Visa</h1>
+<h3><%= t('visa_management')%> - <%= t('New_record')%></h3>
 
-<%= render 'form' %>
+<% if can? :create, Visa%>
+
+	<%= render 'form' %>
+
+<% else %>
+
+	<%= t('permission_denied') %>
+
+<% end # if can? :create, Visa%>
+
 

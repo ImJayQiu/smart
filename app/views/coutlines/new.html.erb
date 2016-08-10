@@ -1,0 +1,12 @@
+<h3><%= t('coutline_management')%> - <%= t('New_record')%></h3>
+
+<% if can? :create, Coutline %>
+
+	<%= render 'form' %>
+
+<% else %>
+
+	<%= t('permission_denied') %>
+
+<% end # if can? :create, Coutline%>
+

@@ -12,7 +12,6 @@ class VisasController < ApplicationController
 	# GET /visas.json
 	def index
 		@visas = Visa.all
-		#@visas = Visa.accessible_by(current_ability)
 	end
 
 	def import

@@ -1,6 +1,8 @@
-<h1>Editing Ustatus</h1>
+<h3><%= t('ustatus_management') %> - <%= t('Edit_record') %></h3>
 
-<%= render 'form' %>
+<% if can? :manage, :ustatus %>
+	<%= render 'form' %>
+<% else %>
+	<%= t('permission_denied') %>
+<% end # if can? :manage, :ustatus %>
 
-<%= link_to 'Show', @ustatus %> |
-<%= link_to 'Back', ustatuses_path %>

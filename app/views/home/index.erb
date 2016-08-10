@@ -1,1 +1,21 @@
-hello world
+<% if current_user.role == 'Admin' %>
+
+	<%= render "home/roles/admin"%>
+
+<% elsif current_user.role == 'Dean' %>
+
+	<%= render "home/roles/dean"%>
+
+<% elsif current_user.role == 'Lecturer' %>
+	
+	<%= render "home/roles/lecturer"%>
+
+<% elsif current_user.role == 'Staff' %>
+	
+	<%= render "home/roles/staff"%>
+
+<% elsif current_user.role == 'Student' %>
+
+	<%= render "home/roles/student"%>
+
+<% end %>

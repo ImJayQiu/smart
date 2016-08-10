@@ -9,7 +9,10 @@
 				<h3 class="box-title"><%= t('ustatus_management')%></h3>
 			</div>
 			<!-- /.box-header -->
-			<div class="box-body">
+
+			<% if can? :create, :ustatus %>
+
+				<div class="box-body">
 				<div class="form-group">
 					<table class="table text-center">
 						<tr>
@@ -17,7 +20,7 @@
 								<%= t("select_import_file")%>:
 							</td>
 							<td>
-								<%= file_field_tag :file %>
+								<%= file_field_tag :file, required: true %>
 							</td>
 							<td>
 								<%= submit_tag t("Import") %>
@@ -27,6 +30,9 @@
 					</table>
 				</div>
 			</div>
+
+			<% end # if can? :create, :ustatus %>
+
 		</div>
 	</div>
 
@@ -80,9 +86,9 @@
 			</div>
 		</div>
 		<ul>
-		<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件
-		<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中
-		<li/>日期栏位请严格遵守 年/月/日（yyyy/mm/dd） 或者 年-月-日(yyyy-mm-dd) 的写法
+			<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件
+			<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中
+			<li/>日期栏位请严格遵守 年/月/日（yyyy/mm/dd） 或者 年-月-日(yyyy-mm-dd) 的写法
 		</ul>
 	</div>
 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  ename: MyString
+  name: MyString
+  des: MyString
+  major: MyString
+  ctype: MyString
+
+two:
+  code: MyString
+  ename: MyString
+  name: MyString
+  des: MyString
+  major: MyString
+  ctype: MyString

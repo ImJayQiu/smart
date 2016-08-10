@@ -3,23 +3,23 @@
 
 	<li class="treeview">
 <a href="#">
-	<i class="fa fa-book"></i><span><%= t("visa_management") %></span> <i class="fa fa-angle-left pull-right"></i>
+	<i class="fa fa-plane"></i><span><%= t("visa_management") %></span> <i class="fa fa-angle-left pull-right"></i>
 </a>
 <ul class="treeview-menu">
 	<li>
 	<%= link_to visas_path do %>
-		<i class="fa fa-book"></i><%= t("visa_management") %>
+		<i class="fa fa-list"></i><%= t("visa_management") %>
 <% end %>
 	</li>
 	<% if can? :manage, :visas %>
 		<li>
 	<%= link_to new_visa_path do %>
-		<i class="fa fa-calendar-plus-o"></i><%= t('New_record') %>
+		<i class="fa fa-plus"></i><%= t('New_record') %>
 <% end %>
 	</li>
 	<li>
 	<%= link_to import_visas_path do %>
-		<i class="fa fa-calendar"></i><%= t('Import_records') %>
+		<i class="fa fa-plus-square"></i><%= t('Import_records') %>
 <% end %>
 	</li>
 

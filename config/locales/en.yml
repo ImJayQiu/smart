@@ -1,5 +1,45 @@
 ---
 en:
+  index_html: <i class="fa fa-list"></i>
+  personal_des: Personal Resume 
+  ctotal_score: Total Score 
+  cschedule_scores_exam: Examination Scores 
+  cschedule_scores_ac: Academic Scores 
+  clecturer: Lecturer 
+  class_code: Class Code 
+  cterm_code: Term Code 
+  cc_code: Course Code 
+  ccredit: Course Credit 
+  cweekday: Class Weekday 
+  cstime: Class Start Time 
+  cetime: Class End Time 
+  croom: Classroom No. 
+  catt: Attendence 
+  chomework: Assignment 
+  cproject: Project	
+  creport: Report 
+  cmid: Mid-term Exam	
+  cfin: Final Exam 
+  cquiz: Quiz 
+  cschedules_time: Class Schedule 
+  cschedules_management: Courses Schedule Management 
+  remaining_days: "Remaining"
+  semester_days: "Total days of the semester"
+  Edit_record: 'Edit Record'
+  semester_year: 'Academic Year'
+  semester_term: 'Term'
+  semester_sdate: 'Semester Begin'
+  semester_edate: 'Semester End'
+  semester_code: 'Semester Code'
+  semester_management: 'Semesters Management'
+  coutline_management: 'Course Outlines'
+  Ctype: 'Course Type'
+  Cname: 'Course Name (Chinese)'
+  Cename: 'Course Name (English)'
+  Ccode: 'Course Code'
+  Cdes: 'Course Description'
+  students_qty: 'Total Students'
+  lecturers_qty: 'Total Lecturers'
   idle_code: '*Remark：These is no one using this CODE in the system，please check the CODE again !'
   idle_passport: '*Remark：These is no one using this PASSPORT NO. in the system，please check the PASSPORT NO. again !'
   ustatus_management: 'Student & Staff Status'
@@ -10,8 +50,10 @@ en:
   main_menu: 'MAIN NAVIGATION'
   Deans_management: 'Deans Management'
   New_user: 'Add New User'
-  New_visa_record: 'New Record'
-  Import_visa_records: 'Import Records'
+  New_record: 'New Record'
+  Edit_record: 'Edit Record'
+  Show_record: 'Show Record'
+  Import_records: 'Import Records'
   Error: 'Import errors'
   Remark: 'Remark'
   due_date: 'Visa Expire Date' 
@@ -24,6 +66,7 @@ en:
   SIS: 'Students Information System'
   Show: 'Show' 
   Edit: 'Edit'
+  Back: 'Back'
   del_confirm: 'The record will be deleted, are you sure ?'
   Del: 'Del'
   Create: 'Create'

@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
+#overlap checking
+gem 'validates_overlap'
+
 # User management
-
 gem 'cancancan', '~> 1.10'
-
 gem 'devise', '~> 3.5.3'
 
 # icons

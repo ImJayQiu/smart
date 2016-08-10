@@ -25,6 +25,7 @@
 				<tr>
 					<th><%=t('Passport')%></th>
 					<th><%=t('due_date')%></th>
+					<th><%=t('remaining_days')%></th>
 					<th><%=t('Operations')%></th>
 				</tr>
 			</thead>
@@ -34,6 +35,7 @@
 				<tr>
 				<td><%= visa.passport %></td>
 				<td><%= visa.due %></td>
+				<td><%= ( visa.due - DateTime.now ).to_i %></td>
 				<td>
 					<% if can? :show, visa %>
 						<%= link_to t('Show'), visa %> | 
@@ -53,6 +55,7 @@
 				<tr>
 					<th><%=t('Passport')%></th>
 					<th><%=t('due_date')%></th>
+					<th><%=t('remaining_days')%></th>
 					<th><%=t('Operations')%></th>
 				</tr>
 			</tfoot>

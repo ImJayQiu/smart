@@ -1,8 +1,13 @@
-<h1>Editing Visa</h1>
+<h3><%= t('visa_management')%> - <%= t('Edit_record')%></h3>
 
-<% if can? :manage, :visa%>
-<%= render 'form' %>
+<% if can? :edit, Visa%>
+
+	<%= render 'form' %>
+
 <% else %>
-<% t('permission_denied') %>
-	<% end # if can? :manage, :visa%>
+
+	<%= t('permission_denied') %>
+
+<% end # if can? :edit, Visa%>
+
 

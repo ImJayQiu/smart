@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  ayear: MyString
+  term: MyString
+  s_date: 2016-08-09
+  e_date: 2016-08-09
+  remark: MyString
+
+two:
+  code: MyString
+  ayear: MyString
+  term: MyString
+  s_date: 2016-08-09
+  e_date: 2016-08-09
+  remark: MyString

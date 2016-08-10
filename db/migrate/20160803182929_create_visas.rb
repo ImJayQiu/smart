@@ -3,7 +3,7 @@ class CreateVisas < ActiveRecord::Migration
     create_table :visas do |t|
       t.string :passport
       t.date :due
-      t.string :remark
+      t.text :remark
 
       t.timestamps null: false
     end

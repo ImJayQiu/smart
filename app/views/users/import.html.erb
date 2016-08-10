@@ -17,7 +17,7 @@
 								<%= t("select_import_file")%>:
 							</td>
 							<td>
-								<%= file_field_tag :file %>
+								<%= file_field_tag :file, required: true %>
 							</td>
 							<td>
 								<%= submit_tag t("Import") %>
@@ -44,57 +44,47 @@
 						<tr>
 							<td>code</td>
 							<td>name</td>
+							<td>gender</td>
 							<td>major</td>
 							<td>enroll</td>
 							<td>passport</td>
-							<td>email</td>
 							<td>role</td>
-							<td>password</td>
-							<td>password_confirmation</td>
 						</tr>
 						<tr>
 							<td>s0001</td>
 							<td>奥巴马</td>
+							<td>男</td>
 							<td>国际贸易</td>
 							<td>2016/09/21</td>
 							<td>G12345678</td>
-							<td>s0001@caic.com</td>
 							<td>Student</td>
-							<td>G12345678</td>
-							<td>G12345678</td>
 						</tr>
 						<tr>
 							<td>s0002</td>
 							<td>华盛顿</td>
+							<td>男</td>
 							<td>旅游管理</td>
 							<td>2016/09/21</td>
 							<td>G23456789</td>
-							<td>s0002@caic.com</td>
 							<td>Student</td>
-							<td>G23456789</td>
-							<td>G23456789</td>
 						</tr>
 						<tr>
 							<td>l0002</td>
 							<td>爱心斯坦</td>
+							<td>女</td>
 							<td>金融会计</td>
 							<td>2016/09/21</td>
 							<td>G34567890</td>
-							<td>l0002@caic.com</td>
 							<td>Lecturer</td>
-							<td>G34567890</td>
-							<td>G34567890</td>
 						</tr>
 						<tr>
 							<td>l0013</td>
 							<td>达尔文</td>
+							<td>女</td>
 							<td>旅游管理</td>
 							<td>2016/09/21</td>
 							<td>G45678901</td>
-							<td>l0013@caic.com</td>
 							<td>Lecturer</td>
-							<td>G45678901</td>
-							<td>G45678901</td>
 						</tr>
 						<tr>
 							<td>.<br>.<br>.</td>
@@ -110,13 +100,11 @@
 						<tr>
 							<td><%= t('Code') %></td>
 							<td><%= t('Name') %></td>
+							<td><%= t('Gender') %></td>
 							<td><%= t('Major') %></td>
 							<td><%= t('enroll_date') %></td>
 							<td><%= t('Passport') %></td>
-							<td><%= t('Email') %></td>
 							<td><%= t('Role') %></td>
-							<td><%= t('Password_setting') %></td>
-							<td><%= t('Password_confirm') %></td>
 						</tr>
 					</table>
 				</div>

@@ -1,0 +1,13 @@
+valid_header: <%= @valid_header %>
+<p/>
+message: <%= @message %>
+<p/>
+report: <%= @report %>
+<p/>
+errors:
+<p/>
+<ul>
+<% @error.each do |e| %>
+	<li><%= e.to_a[0].code %> | <%= e.to_a[1] %></li>
+<% end %>
+</ul>

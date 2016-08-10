@@ -1,0 +1,17 @@
+
+<% if can? :list, :semesters %>
+
+	<li class="treeview">
+
+<%= link_to semesters_path do %>
+
+	<i class="fa fa-hourglass-start"></i>
+
+<span><%= t("semester_management") %></span>
+
+<% end %>
+
+</li>
+
+<% end # if can? :list, :semesters %>
+

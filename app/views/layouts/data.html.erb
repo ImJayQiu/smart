@@ -19,6 +19,7 @@
 <!-- AdminLTE Skins. Choose a skin from the css/skins
 	   folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="/src/dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="/src/plugins/datepicker/datepicker3.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,7 +51,7 @@
 
 
 			<!-- search form -->
-			<%= render "layouts/parts/search_form"%>
+			<%#= render "layouts/parts/search_form"%>
 			<!-- /.search form -->
 
 			<!-- sidebar menu: : style can be found in sidebar.less -->
@@ -83,7 +84,7 @@
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
-		<%= render "layouts/parts/footer" %>
+	<%= render "layouts/parts/footer" %>
 
 
 	<%= render "layouts/parts/control_sidebar" %>
@@ -97,6 +98,7 @@
 
 <!-- Bootstrap 3.3.6 -->
 <script src="/src/bootstrap/js/bootstrap.min.js"></script>
+<script src="/src/plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- DataTables -->
 <script src="/src/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="/src/plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -109,16 +111,45 @@
 <!-- page script -->
 <script>
 $(function () {
+
+
+		$("#sdate").datepicker({
+			"autoclose": true,
+			}).on('changeDate', function (selected) {
+				var startDate = new Date(selected.date.valueOf());
+				$('#edate').datepicker('setStartDate', startDate);
+				}).on('clearDate', function (selected) {
+					$('#edate').datepicker('setStartDate', null);
+					});
+
+		$("#edate").datepicker({
+			"autoclose": true,
+			}).on('changeDate', function (selected) {
+				var endDate = new Date(selected.date.valueOf());
+				$('#sdate').datepicker('setEndDate', endDate);
+				}).on('clearDate', function (selected) {
+					$('#sdate').datepicker('setEndDate', null);
+					});
+
+
+		//Date picker
+		$('#datepicker').datepicker({
+				"autoclose": true
+				});
+
+		//Table style
 		$("#example1").DataTable();
 		$('#example2').DataTable({
-			"paging": true,
-			"lengthChange": false,
-			"searching": false,
-			"ordering": true,
-			"info": true,
-			"autoWidth": false
-			});
-		});
+				"paging": true,
+				"lengthChange": false,
+				"searching": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false
+				});
+
+});
+
 </script>
 </body>
 </html>

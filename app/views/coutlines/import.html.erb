@@ -1,0 +1,112 @@
+
+<section class="content">
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<%= form_tag imported_coutlines_path, multipart: true do %>
+			<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"><%= t('visa_management')%></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= t("select_import_file")%>:
+							</td>
+							<td>
+								<%= file_field_tag :file, required: true %>
+							</td>
+							<td>
+								<%= submit_tag t("Import") %>
+							<% end %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"><%= t('csv_example')%></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>code</td>
+							<td>ename</td>
+							<td>name</td>
+							<td>major</td>
+							<td>ctype</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<td>BI0023</td>
+							<td>Management</td>
+							<td>管理学</td>
+							<td>国际贸易</td>
+							<td>公共必修</td>
+							<td>管理学简介管理学简介管理学简介管理学简介管理学简介</td>
+						</tr>
+						<tr>
+							<td>CS0023</td>
+							<td>E-Business</td>
+							<td>电子商务</td>
+							<td>国际贸易</td>
+							<td>公共选修</td>
+							<td>电子商务简介电子商务简介电子商务简介电子商务简介</td>
+						</tr>
+						<tr>
+							<td>TR0020</td>
+							<td>Tourism Management</td>
+							<td>旅游管理学</td>
+							<td>旅游管理</td>
+							<td>专业必修</td>
+							<td>旅游旅游管理管理旅游管理学旅游管理学</td>
+						</tr>
+						<tr>
+							<td>AR0053</td>
+							<td>Computer Interface</td>
+							<td>计算机界面设计</td>
+							<td>艺术设计</td>
+							<td>专业选修</td>
+							<td>计算机界面设计简介计算机界面设计简介</td>
+						</tr>
+						<tr>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+						</tr>
+						<tr>
+							<td><%= t('Ccode') %></td>
+							<td><%= t('Cename') %></td>
+							<td><%= t('Cname') %></td>
+							<td><%= t('Major') %></td>
+							<td><%= t('Ctype') %></td>
+							<td><%= t('Cdes') %></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<ul>
+		<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件
+		<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中
+		</ul>
+	</div>
+
+
+
+</section>

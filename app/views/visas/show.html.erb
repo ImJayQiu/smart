@@ -1,5 +1,10 @@
+<h3><%= t('visa_management')%> - <%= t('Show_record')%></h3>
+
 <p id="notice"><%= notice %></p>
-<% if @user.nil? %>
+
+<% if can? :view, Visa%>
+
+	<% if @user.nil? %>
 	<section class="content">
 	<div class="row">
 		<!-- left column -->
@@ -25,6 +30,10 @@
 						<%= @visa.due %>
 					</div>
 					<div class="form-group">
+						<%= t('remaining_days') %>:
+						<%= (@visa.due - DateTime.now).to_i %>
+					</div>
+					<div class="form-group">
 						<%= t('idle_passport') %>
 					</div>
 
@@ -37,6 +46,7 @@
 
 
 <% else %>
+
 		<section class="content">
 		<div class="row">
 			<!-- left column -->
@@ -47,13 +57,22 @@
 						<h3 class="box-title">
 							<%= image_tag @user.avatar.url(:thumb) %>
 							<%= t('visa_management')%>
-							<%= t('due_date')%> | <%= @visa.due %>
 						</h3>
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
 					<!--form role="form" -->
 					<div class="box-body">
+
+						<div class="form-group">
+							<%= t('due_date')%>: 
+							<%= @visa.due %>
+						</div>
+
+						<div class="form-group">
+							<%= t('remaining_days') %>:
+							<%= (@visa.due - DateTime.now).to_i %>
+						</div>
 
 						<div class="form-group">
 							<%= t('Code') %>: 
@@ -151,6 +170,9 @@
 										<%= button_to t('Edit'), edit_visa_path(@visa), method: "get" %>
 									</td>
 									<td>
+										<%= button_to t('visa_management'), visas_path, method: "get" %>
+									</td>
+									<td>
 										<%= button_to t('back_landing'), root_path, method: "get" %>
 									</td>
 								</tr>
@@ -166,4 +188,8 @@
 	</div><!-- end class row -->
 </section>
 
+<% else %>
 
+	<%= t('permission_denied') %>
+
+<% end # if can? :show, Visa%>

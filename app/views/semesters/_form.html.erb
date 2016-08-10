@@ -1,0 +1,121 @@
+<%= form_for(@semester) do |f| %>
+	<% if @semester.errors.any? %>
+	<div id="error_explanation">
+	<h2><%= pluralize(@semester.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	<ul>
+		<% @semester.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+	<% end %>
+	</ul>
+</div>
+  <% end %>
+
+
+<section class="content">
+	<div class="row">
+		<!-- left column -->
+
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('semester_management')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.label t('semester_code') %>
+						<%= f.text_field :code, class: 'form-control', required: true %>
+					</div>
+					<div class="form-group">
+						<%= f.label t('semester_year') %>
+						<%= f.text_field :ayear, class: 'form-control', required: true %>
+					</div>
+					<div class="form-group">
+						<%= f.label t('semester_term') %>
+						<%= f.text_field :term, class: 'form-control', required: true %>
+					</div>
+				</div>
+				<!-- form start -->
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('semester_management')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.label t('semester_sdate') %>
+						<%= f.text_field :s_date, class: 'form-control', id: 'sdate', required: true %>
+					</div>
+					<div class="form-group">
+						<%= f.label t('semester_edate') %>
+						<%= f.text_field :e_date, class: 'form-control', id: 'edate', required: true %>
+					</div>
+				</div>
+				<!-- form start -->
+			</div>
+		</div>
+
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Remark')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.text_area :remark, class: 'form-control' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Operations')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<table class="table text-center">
+							<tr>
+								<td>
+									<%= f.submit t('Submit') %>
+								<% end %>
+								</td>
+								<td>
+									<%= button_to t('semester_management'), semesters_path, method: "get" %>
+								</td>
+
+								<td>
+									<%= button_to t('back_landing'), root_path, method: "get" %>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+</div><!-- end class row -->
+</section>
+

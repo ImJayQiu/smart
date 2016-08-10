@@ -5,6 +5,8 @@
 	</div>
 	<div class="pull-left info">
 		<p><%= "#{current_user.name} | #{current_user.ename}" %></p>
-		<a href="#"><i class="fa fa-circle text-success"></i><%= current_user.code %></a>
+		<%= link_to user_path(current_user) do %>
+			<i class="fa fa-circle text-success"></i><%= current_user.code %>
+<% end %>
 	</div>
 </div>

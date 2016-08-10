@@ -1391,12 +1391,12 @@
 	var defaults = $.fn.datepicker.defaults = {
 		autoclose: false,
 		beforeShowDay: $.noop,
-		calendarWeeks: false,
+		calendarWeeks: true,
 		clearBtn: false,
 		daysOfWeekDisabled: [],
 		endDate: Infinity,
 		forceParse: true,
-		format: 'mm/dd/yyyy',
+		format: 'yyyy-mm-dd',
 		keyboardNavigation: true,
 		language: 'en',
 		minViewMode: 0,
@@ -1407,7 +1407,7 @@
 		startDate: -Infinity,
 		startView: 0,
 		todayBtn: false,
-		todayHighlight: false,
+		todayHighlight: true,
 		weekStart: 0
 	};
 	var locale_opts = $.fn.datepicker.locale_opts = [
@@ -1418,13 +1418,13 @@
 	$.fn.datepicker.Constructor = Datepicker;
 	var dates = $.fn.datepicker.dates = {
 		en: {
-			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-			today: "Today",
-			clear: "Clear"
+			days: ["周日 | Sun", "周一 | Mon", "周二 | Tue", "周三 | Wed", "周四 | Thu", "周五 | Fri", "周六 | Sat", "周日 | Sun"],
+			daysShort: ["日 | Sun", "一 | Mon", "二 | Tue", "三 | Wed", "四 | Thu", "五 | Fri", "六 | Sat", "日 | Sun"],
+			daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+			months: ["一月 January", "二月 February", "三月 March", "四月 April", "五月 May", "六月 June", "七月 July", "八月 August", "九月 September", "十月 October", "十一月 November", "十二月 December"],
+			monthsShort: ["01-Jan", "02-Feb", "03-Mar", "04-Apr", "05-May", "06-Jun", "07-Jul", "08-Aug", "09-Sep", "10-Oct", "11-Nov", "12-Dec"],
+			today: "今天 | Today",
+			clear: "清除 | Clear"
 		}
 	};
 

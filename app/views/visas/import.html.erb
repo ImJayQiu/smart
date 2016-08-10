@@ -17,7 +17,7 @@
 								<%= t("select_import_file")%>:
 							</td>
 							<td>
-								<%= file_field_tag :file %>
+								<%= file_field_tag :file, required: true %>
 							</td>
 							<td>
 								<%= submit_tag t("Import") %>

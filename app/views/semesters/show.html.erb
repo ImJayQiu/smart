@@ -1,0 +1,112 @@
+<h3><%= t('semester_management') %> - <%= t('Show_record') %></h3>
+
+<p id="notice"><%= notice %></p>
+
+<% if can? :show, Semester%>
+
+	<section class="content">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						<%= t('semester_management')%>
+					</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<!--form role="form" -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= t('semester_code') %>: 
+						<%= @semester.code %>
+					</div>
+					<div class="form-group">
+						<%= t('semester_year') %>: 
+						<%= @semester.ayear %>
+					</div>
+					<div class="form-group">
+						<%= t('semester_term') %>: 
+						<%= @semester.term %>
+					</div>
+
+				</div>
+				<!-- /form -->
+			</div>
+		</div>
+
+		<!-- right column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%#= t('contact_info')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<!-- form role="form" -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= t('semester_sdate') %>: 
+						<%= @semester.s_date %>
+					</div>
+					
+					<div class="form-group">
+						<%= t('semester_edate') %>: 
+						<%= @semester.e_date %>
+					</div>
+	
+					<div class="form-group">
+						<%= t('semester_days') %>: 
+						<%= (@semester.e_date - @semester.s_date).to_i %>
+					</div>
+
+				</div>
+				<!-- /form -->
+			</div>
+		</div>
+
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Operations')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<table class="table text-center">
+							<tbody>
+							<tr>
+								<td>
+									<%= button_to t('Edit'), edit_semester_path(@semester), method: "get" %>
+								</td>
+								<td>
+									<%= button_to t('semester_management'), semesters_path, method: "get" %>
+								</td>
+								<td>
+									<%= button_to t('back_landing'), root_path, method: "get" %>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div><!-- end class row -->
+</section>
+
+<% else %>
+
+<%= t('permission_denied') %>
+
+<% end # if can? :show, Semester%>

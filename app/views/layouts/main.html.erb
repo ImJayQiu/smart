@@ -11,7 +11,7 @@
 <!-- Font Awesome -->
 <%= stylesheet_link_tag 'application' %>
 <!-- Ionicons -->
-<link rel="stylesheet" href="/src/icon/ionicons.min.css">
+<link rel="stylesheet" href="/src/icon/css/ionicons.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/src/dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="/src/dist/css/skins/skin-blue.min.css">
@@ -39,7 +39,7 @@
 			<%= render "layouts/parts/sidebar_user_panel"%>
 
 			<!-- search form (Optional) -->
-			<%= render "layouts/parts/search_form"%>
+			<%#= render "layouts/parts/search_form"%>
 			<!-- /.search form -->
 
 			<!-- Sidebar Menu -->
@@ -58,10 +58,6 @@
 
 		<!-- Main content -->
 		<section class="content">
-
-			<!-- Your Page Content Here -->
-
-			<p id="notice"><%= notice %></p>
 
 			<%= yield %>
 

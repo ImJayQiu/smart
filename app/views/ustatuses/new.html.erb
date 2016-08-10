@@ -1,5 +1,4 @@
-<h1><%= t('ustatus_management') %></h1>
-<h1><%= t('New_record') %></h1>
+<h3><%= t('ustatus_management') %> - <%= t('New_record') %></h3>
 
 <% if can? :manage, :ustatus %>
 
@@ -9,5 +8,5 @@
 
 	<%= t('permission_denied') %>
 
-<% end # if can? :manage, :ustatus%>
+<% end # if can? :manage, :ustatus %>
 

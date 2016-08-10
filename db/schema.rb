@@ -11,7 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805102812) do
+ActiveRecord::Schema.define(version: 20160809104816) do
+
+  create_table "coutlines", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "ename",      limit: 255
+    t.string   "name",       limit: 255
+    t.string   "des",        limit: 255
+    t.string   "major",      limit: 255
+    t.string   "ctype",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "cschedules", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "term_code",  limit: 255
+    t.string   "c_code",     limit: 255
+    t.string   "credit",     limit: 255
+    t.integer  "weekday",    limit: 4
+    t.time     "stime"
+    t.time     "etime"
+    t.string   "lecturer",   limit: 255
+    t.string   "room",       limit: 255
+    t.integer  "att",        limit: 4
+    t.integer  "homework",   limit: 4
+    t.integer  "project",    limit: 4
+    t.integer  "report",     limit: 4
+    t.integer  "mid",        limit: 4
+    t.integer  "find",       limit: 4
+    t.integer  "quiz",       limit: 4
+    t.string   "remark",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "semesters", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "ayear",      limit: 255
+    t.string   "term",       limit: 255
+    t.date     "s_date"
+    t.date     "e_date"
+    t.string   "remark",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "code",                   limit: 255,              null: false
