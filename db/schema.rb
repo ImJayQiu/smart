@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809104816) do
+ActiveRecord::Schema.define(version: 20160812083221) do
 
   create_table "coutlines", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -39,11 +39,21 @@ ActiveRecord::Schema.define(version: 20160809104816) do
     t.integer  "project",    limit: 4
     t.integer  "report",     limit: 4
     t.integer  "mid",        limit: 4
-    t.integer  "find",       limit: 4
+    t.integer  "fin",        limit: 4
     t.integer  "quiz",       limit: 4
     t.string   "remark",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "other",      limit: 4
+  end
+
+  create_table "majors", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "name",       limit: 255
+    t.string   "ename",      limit: 255
+    t.text     "remark",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -88,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160809104816) do
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
     t.date     "enroll",                                          null: false
+    t.string   "des",                    limit: 255
   end
 
   add_index "users", ["code"], name: "code_UNIQUE", unique: true, using: :btree

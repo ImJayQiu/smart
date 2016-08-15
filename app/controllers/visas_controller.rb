@@ -11,8 +11,18 @@ class VisasController < ApplicationController
 	# GET /visas
 	# GET /visas.json
 	def index
-		@visas = Visa.all
+		@visas = Visa.select(:id, :passport, :due).where("? < due", DateTime.now )
 	end
+
+	def renew 
+	#	@renews = Visa.select('id, max(due) as due, passport').where("? < due && due < ?", DateTime.now-1.days, DateTime.now + 15.days).group(:passport)
+	end
+
+	def expired 
+		@expired = Visa.where("? > due", DateTime.now-1.day )
+	end
+
+
 
 	def import
 
@@ -31,7 +41,7 @@ class VisasController < ApplicationController
 		@valid_header = import.valid_header?  # => false
 		@message = import.report.message # => "The following columns are required: email"
 		@error = import.report.invalid_rows.map { |row| [row.model, row.errors] }
-		@report = import.report.success? # => true
+		@success = import.report.success? # => true
 
 	end
 

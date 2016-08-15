@@ -3,16 +3,16 @@
 	<!-- final column -->
 	<div class="col-md-12">
 		<!-- general form elements -->
-		<%= form_tag imported_ustatuses_path, multipart: true do %>
+		<%= form_tag imported_cschedules_path, multipart: true do %>
 			<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 class="box-title"><%= t('ustatus_management')%></h3>
+				<h3 class="box-title"><%= t('cschedules_management')%></h3>
 			</div>
 			<!-- /.box-header -->
 
 			<% if can? :create, :cschedule %>
 
-				<div class="box-body">
+				<div class="box-body table-responsive ">
 				<div class="form-group">
 					<table class="table text-center">
 						<tr>
@@ -44,54 +44,122 @@
 				<h3 class="box-title"><%= t('csv_example')%></h3>
 			</div>
 			<!-- /.box-header -->
-			<div class="box-body">
+			<div class="box-body table-responsive ">
 				<div class="form-group">
 					<table class="table text-center">
 						<tr>
 							<td>code</td>
-							<td>date</td>
-							<td>status</td>
+							<td>term_code</td>
+							<td>c_code</td>
+							<td>weekday</td>
+							<td>stime</td>
+							<td>etime</td>
+							<td>lecturer</td>
+							<td>room</td>
+							<td>credit</td>
 						</tr>
 						<tr>
-							<td>Student002</td>
-							<td>2016/09/21</td>
-							<td>退学</td>
+							<td>201603AR015</td>
+							<td>201603</td>
+							<td>AR001</td>
+							<td>1</td>
+							<td>09:00</td>
+							<td>12:00</td>
+							<td>lecturer011</td>
+							<td>Room202</td>
+							<td>3</td>
 						</tr>
 						<tr>
-							<td>Student004</td>
-							<td>2016/09/21</td>
-							<td>休学</td>
+							<td>201603TM003</td>
+							<td>201603</td>
+							<td>TM001</td>
+							<td>5</td>
+							<td>13:00</td>
+							<td>14:30</td>
+							<td>lecturer024</td>
+							<td>Room302</td>
+							<td>3</td>
 						</tr>
 						<tr>
-							<td>Staff013</td>
-							<td>2016-09-21</td>
-							<td>产假</td>
+							<td>201603IB001</td>
+							<td>201603</td>
+							<td>IB001</td>
+							<td>2</td>
+							<td>08:30</td>
+							<td>11:00</td>
+							<td>lecturer001</td>
+							<td>Room302</td>
+							<td>3</td>
 						</tr>
 						<tr>
-							<td>Lecturer023</td>
-							<td>2016-09-21</td>
-							<td>离职</td>
+							<td>201603AC001</td>
+							<td>201603</td>
+							<td>AC009</td>
+							<td>3</td>
+							<td>15:00</td>
+							<td>16:30</td>
+							<td>lecturer031</td>
+							<td>Room501</td>
+							<td>3</td>
 						</tr>
 						<tr>
 							<td>.<br>.<br>.</td>
 							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
 						</tr>
 						<tr>
-							<td><%= t('Code') %></td>
-							<td><%= t('Date') %></td>
-							<td><%= t('Status') %></td>
+							<td><%= t('class_code') %></td>
+							<td><%= t('cterm_code') %></td>
+							<td><%= t('cc_code') %></td>
+							<td><%= t('cweekday') %></td>
+							<td><%= t('cstime') %></td>
+							<td><%= t('cetime') %></td>
+							<td><%= t('clecturer') %></td>
+							<td><%= t('croom') %></td>
+							<td><%= t('ccredit') %></td>
 						</tr>
 					</table>
 				</div>
 			</div>
 		</div>
 		<ul>
-			<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件
-			<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中
-			<li/>日期栏位请严格遵守 年/月/日（yyyy/mm/dd） 或者 年-月-日(yyyy-mm-dd) 的写法
+			<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件.
+			<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中.
+			<li/>时间栏位请严格遵守 小时：分钟（HH：MM）的写法，并使用24小时制.
 		</ul>
 	</div>
 
 
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive ">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= button_to t('cschedules_management'), cschedules_path, method: "get" %>
+							</td>
+
+							<td>
+								<%= button_to t('back_landing'), root_path, method: "get" %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end column  -->
 
 </section>

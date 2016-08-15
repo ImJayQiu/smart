@@ -1,11 +1,22 @@
 ---
 zh-CN:
+  country_analysis: 生源分布统计 
+  major_analysis: 各专业分布统计
+  students_analysis: 在校生数据分析
+  my_visas: 我的签证记录
+  change_password: 更改密码
+  major_code: 专业代码
+  major_management: 专业管理
+  major_name: 专业（中）
+  major_ename: 专业（英）
+  visa_expired: 已过期签证
+  visa_renew: 签证过期提醒
   index_html: <i class="fa fa-list"></i>
   personal_des: 个人简介
   ctotal_score: 课程考核总分
   cschedule_scores_exam: 考试分数设置
   cschedule_scores_ac: 课程分数设置
-  clecturer: 授课教师
+  clecturer: 讲师
   class_code: 开课代码
   cterm_code: 学期代码
   cc_code:  课程代码
@@ -33,7 +44,7 @@ zh-CN:
   semester_code: '学期编号'
   semester_management: '学期管理'
   coutline_management: '课程大纲设置'
-  Cname: '课程名称(中)'
+  Cname: '课程名称'
   Cename: '课程名称(英)'
   Ctype: '课程类型'
   Ccode: '课程代码'
@@ -69,7 +80,7 @@ zh-CN:
   User: '用户'
   Profile: '个人资料'
   Submit: '提交'
-  Operations: '操作选项' 
+  Operations: '操作' 
   Ename: '姓名 （英文 | 拼音）'
   Name: '姓名 （中文）'
   Birthday: '生日'
@@ -81,9 +92,9 @@ zh-CN:
   Email: '电子邮件'
   Gender: '性别'
   Passport: '护照号码'
-  Password_setting: '初始登陆密码'
+  Password_setting: '登陆密码'
   Password_confirm: '确认登陆密码'
-  Logout: '退出系统'
+  Logout: 退出
   Users_management: '用户管理'
   Students_management: '学生管理'
   Lecturers_management: '讲师管理'

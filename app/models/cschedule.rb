@@ -20,4 +20,5 @@ class Cschedule < ActiveRecord::Base
 	validates :stime, :etime, :overlap => {:scope => ["room", "term_code", "weekday"], message_title: "时间冲突: ", message_content: "该教室在所选择的时间内正在进行其他的课程，请选择其他时间段, 或者安排另一间教室！" }
 
 	validates :stime, :etime, :overlap => {:scope => ["lecturer", "term_code", "weekday"], message_title: "时间冲突: ", message_content: "该讲师在所选择的时间内正在进行其他的课程，请选择其他时间段, 或者安排另一名讲师！" }
+
 end

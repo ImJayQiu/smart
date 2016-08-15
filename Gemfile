@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#charting tool
+gem 'lazy_high_charts'
+
 #overlap checking
 gem 'validates_overlap'
 

@@ -19,13 +19,14 @@
 	<% end # if can? :create, Cschedule %>
 
 
-	<div class="box-body">
+	<div class="box-body table-responsive ">
 		<table id="example1" class="table table-bordered table-striped">
 			<thead>
 				<tr>
 					<th><%=t('index_html')%></th>
 					<th><%=t('class_code')%></th>
 					<th><%=t('Cname')%></th>
+					<th><%=t('cterm_code')%></th>
 					<th><%=t('croom')%></th>
 					<th><%=t('clecturer')%></th>
 					<th><%=t('cweekday')%></th>
@@ -40,10 +41,11 @@
 				<td><%= i+1 %></td>
 				<td><%= cschedule.code %></td>
 				<td><%= cschedule.coutline.name rescue nil %></td>
+				<td><%= cschedule.term_code %></td>
 				<td><%= cschedule.room %></td>
 				<td><%= cschedule.user.name rescue nil %></td>
 				<td>周 <%= cschedule.weekday %></td>
-				<td><%= cschedule.stime %> - <%= cschedule.etime %></td>
+				<td><%= time(cschedule.stime) %> - <%= time(cschedule.etime) %></td>
 				<td>
 					<% if can? :show, cschedule %>
 						<%= link_to t('Show'), cschedule %> | 

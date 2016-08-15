@@ -46,6 +46,9 @@
 					<% if can? :edit, user %>
 						|<%= link_to t('Edit'), edit_user_path(user) %> 
 			<% end %>
+					<% if can? :change_password, user %>
+						|<%= link_to t('change_password'), edit_password_user_path(user) %> 
+			<% end %>
 					<% if can? :del, user %>
 						|<%= link_to t('Del'), user, method: :delete, data: { confirm: t('del_confirm') } %>
 			<% end %>

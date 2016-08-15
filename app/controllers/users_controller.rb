@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 	# GET /users.json
 
 	def index
-		#@users = User.accessible_by(current_ability)
 		@users = User.select(:id, :code, :name, :major, :gender, :role, :passport).all
 
 	end
@@ -56,16 +55,37 @@ class UsersController < ApplicationController
 		import.run!
 
 		@valid_header = import.valid_header?  # => false
-		@import_status = import.report.status
 		@message = import.report.message # => "The following columns are required: email"
 		@error = import.report.invalid_rows.map { |row| [row.model, row.errors] }
-		@report = import.report.success? # => true
+		@success = import.report.success? # => true
 
 	end
 
 	# GET /users/1/edit
 	def edit
 	end
+
+	def edit_password
+		@user = User.find(params[:id])
+	end
+
+	def update_password
+
+		@user = User.find(params[:id])
+
+		respond_to do |format|
+
+			if @user.update(user_pw_params)
+				format.html { redirect_to @user, notice: '用户密码已经成功更改！ | User password was successfully updated.' }
+				format.json { render :show, status: :ok, location: @user }
+			else
+				format.html { render :edit }
+				format.json { render json: @user.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+
+
 
 	# POST /users
 	# POST /users.json
@@ -93,6 +113,7 @@ class UsersController < ApplicationController
 	# PATCH/PUT /users/1.json
 	def update
 		respond_to do |format|
+
 			if @user.update(user_params)
 				format.html { redirect_to @user, notice: 'User was successfully updated.' }
 				format.json { render :show, status: :ok, location: @user }
@@ -101,6 +122,7 @@ class UsersController < ApplicationController
 				format.json { render json: @user.errors, status: :unprocessable_entity }
 			end
 		end
+
 	end
 
 	# DELETE /users/1
@@ -114,13 +136,20 @@ class UsersController < ApplicationController
 	end
 
 	private
+
 	# Use callbacks to share common setup or constraints between actions.
+
 	def set_user
 		@user = User.find(params[:id])
 	end
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def user_params
-		params.require(:user).permit(:des, :enroll, :password_confirmation, :password, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role)
+		params.require(:user).permit(:des, :enroll, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role)
 	end
+
+	def user_pw_params
+		params.require(:user).permit(:password, :password_confirmation )
+	end
+
 end

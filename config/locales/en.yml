@@ -1,5 +1,15 @@
 ---
 en:
+  country_analysis: Student Analysis by Country 
+  major_analysis: Student Analysis by Major
+  students_analysis: Students Analysis 
+  my_visas: My Visa Records 
+  major_code: Major Code 
+  major_management: Major Management 
+  major_name: Major Name (CN) 
+  major_ename: Major Name (EN) 
+  visa_expired: Expired Visas 
+  visa_renew: Visa Expire Warning 
   index_html: <i class="fa fa-list"></i>
   personal_des: Personal Resume 
   ctotal_score: Total Score 
@@ -22,7 +32,7 @@ en:
   cfin: Final Exam 
   cquiz: Quiz 
   cschedules_time: Class Schedule 
-  cschedules_management: Courses Schedule Management 
+  cschedules_management: Classes Schedule 
   remaining_days: "Remaining"
   semester_days: "Total days of the semester"
   Edit_record: 'Edit Record'

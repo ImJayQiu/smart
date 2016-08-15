@@ -1,5 +1,5 @@
 
-<% if can? :import, :user %>
+<% if can? :create, :user %>
 
 	<section class="content">
 	<!-- final column -->
@@ -13,17 +13,17 @@
 			<div class="box-body">
 				<div class="form-group">
 					Message: <%= @message %><br/>
-					Status: <%= @import_status %>
-			</div>
+				</div>
 				<div class="form-group">
-					导入结果 | Data Import Result : 
-					<% if @report == "false" %>
-						系统检测到某些数据有误，请仔细核查后再重新导入！
-					Some errors found ! Please import again after checking !  
+					<% if @success == "false" %>
+						导入结果: 系统检测到某些数据有误，请仔细核查后再重新导入！
+					<p/>
+					Data Import Result : Some errors found ! Please import again after checking !  
 				<% else %>
-						所有记录已全部成功导入！
-					All records have been imported successfully !  
-					<% end if @report == "false" %>
+						导入结果: 所有记录已全部成功导入！
+					<p/>
+					Data Import Result : All records have been imported successfully !  
+					<% end # if @report == "false" %>
 				</div>
 				<div class="form-group">
 					<table class='table text-left'>
@@ -97,4 +97,4 @@
 
 <% else %>
 	<%= t('permission_denied') %>
-<% end # if can? :import, :user %>
+<% end # if can? :create, :user %>

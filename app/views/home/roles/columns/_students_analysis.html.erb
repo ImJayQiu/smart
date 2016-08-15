@@ -1,0 +1,67 @@
+
+<div class="box box-info">
+	<div class="box-header with-border">
+		<h3 class="box-title"><%= t('students_analysis')%></h3>
+
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+			</button>
+			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		</div>
+	</div>
+	<!-- /.box-header -->
+
+	<div class="box-body no-padding" style="display: block;">
+		<div class="row">
+			<div class="col-md-4">
+				<%= high_chart("gender", @gender_analysis) %>
+			</div>
+			<div class="col-md-8">
+				<%= high_chart("major", @major_analysis) %>
+			</div>
+
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.box-body -->
+	<!-- /.box-footer -->
+</div>
+
+
+
+<div class="box box-info">
+	<div class="box-header with-border">
+		<h3 class="box-title"><%= t('students_analysis')%></h3>
+
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+			</button>
+			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		</div>
+	</div>
+	<!-- /.box-header -->
+
+	<div class="box-body no-padding" style="display: block;">
+		<div class="row">
+			<div class="col-md-4">
+				<%= high_chart("country", @country_analysis) %>
+			</div>
+	<div class="col-md-4">
+				<%= high_chart("province", @province_analysis) %>
+			</div>
+	<div class="col-md-4">
+				<%= high_chart("city", @city_analysis) %>
+			</div>
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.box-body -->
+
+
+
+
+
+	<!-- /.box-footer -->
+</div>
+
+<% end %>

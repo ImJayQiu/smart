@@ -3,9 +3,9 @@
 		<h3 class="box-title"><%= t("Students_management")%></h3>
 	</div>
 
-		<% if can? :list, :students %>
+	<% if can? :list, :students %>
 
-	<div class="box-body">
+		<div class="box-body">
 		<table class="table text-center">
 			<tr>
 				<th>
@@ -45,6 +45,10 @@
 					<% if can? :edit, user %>
 						|<%= link_to t('Edit'), edit_user_path(user) %> 
 			<% end %>
+					<% if can? :change_password, :student %>
+						|<%= link_to t('change_password'), edit_password_user_path(user) %> 
+			<% end %>
+
 					<% if can? :del, user %>
 						|<%= link_to t('Del'), user, method: :delete, data: { confirm: t('del_confirm') } %>
 			<% end %>

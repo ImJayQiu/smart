@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+	resources :majors
 	resources :semesters
 
 	resources :cschedules do
@@ -26,12 +27,14 @@ Rails.application.routes.draw do
 
 	resources :visas do
 		collection do
+			get :renew
+			get :expired
 			get :import
 			post :imported
 		end
 	end
 
-
+	#	devise_for :users, :skip => [:registrations]                                          
 	devise_for :users 	# must be at the top
 
 	resources :users do
@@ -41,7 +44,14 @@ Rails.application.routes.draw do
 			get :deans
 			get :admins
 			get :import
+			#get ':id/edit_password', to: "users#edit_password", as: "edit_password"
 			post :imported
+			post :update_password
+		end
+		member do
+			patch :update_password
+			put :update_password
+			get :edit_password
 		end
 	end
 

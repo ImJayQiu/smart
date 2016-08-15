@@ -6,10 +6,10 @@
 		<%= form_tag imported_coutlines_path, multipart: true do %>
 			<div class="box box-primary">
 			<div class="box-header with-border">
-				<h3 class="box-title"><%= t('visa_management')%></h3>
+				<h3 class="box-title"><%= t('coutline_management')%></h3>
 			</div>
 			<!-- /.box-header -->
-			<div class="box-body">
+			<div class="box-body table-responsive">
 				<div class="form-group">
 					<table class="table text-center">
 						<tr>
@@ -38,7 +38,7 @@
 				<h3 class="box-title"><%= t('csv_example')%></h3>
 			</div>
 			<!-- /.box-header -->
-			<div class="box-body">
+			<div class="box-body table-responsive">
 				<div class="form-group">
 					<table class="table text-center">
 						<tr>
@@ -102,11 +102,37 @@
 			</div>
 		</div>
 		<ul>
-		<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件
-		<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中
+			<li/>Microsoft Office Excel, Open Office Calc 及 Google Docs 等均支持另存为 CSV 文件
+			<li/>请保持第一行的栏位和内容固定不变(包括字母大小写)，最后一行为各栏位的数据说明无需添加进文件中
 		</ul>
 	</div>
 
 
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"><%= t('Operations')%></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= button_to t('coutline_management'), coutlines_path, method: "get" %>
+							</td>
+
+							<td>
+								<%= button_to t('back_landing'), root_path, method: "get" %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end column  -->
 
 </section>

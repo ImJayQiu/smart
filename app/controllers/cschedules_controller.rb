@@ -9,7 +9,7 @@ class CschedulesController < ApplicationController
 	# GET /cschedules.json
 	
 	def index
-		@cschedules = Cschedule.select(:id, :code, :c_code, :room, :weekday, :stime, :etime, :lecturer).order('term_code DESC')
+		@cschedules = Cschedule.select(:id, :code, :c_code, :term_code, :room, :weekday, :stime, :etime, :lecturer).order('term_code DESC')
 	end
 
 	# GET /cschedules/1
@@ -37,7 +37,7 @@ class CschedulesController < ApplicationController
 		@valid_header = import.valid_header?  # => false
 		@message = import.report.message # => "The following columns are required: email"
 		@error = import.report.invalid_rows.map { |row| [row.model, row.errors] }
-		@report = import.report.success? # => true
+		@success = import.report.success? # => true
 
 	end
 

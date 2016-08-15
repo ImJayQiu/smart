@@ -1,0 +1,87 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><%= t('visa_management') %></h3>
+	</div>
+	<!-- /.box-header -->
+	<% if can? :create, Visa %>
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_record'), new_visa_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_records'), import_visas_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<% end # if can? :create, Visa %>
+
+
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th><%=t('index_html')%></th>
+					<th><%=t('Passport')%></th>
+					<th><%=t('due_date')%></th>
+					<th><%=t('remaining_days')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</thead>
+
+			<tbody>
+			<% @expired.each_with_index do |visa,i| %>
+				<tr>
+				<td><%= i+1 %></td>
+				<td><%= visa.passport %></td>
+				<td><%= visa.due %></td>
+				<td><%= ( visa.due - DateTime.now ).to_i %></td>
+				<td>
+					<% if can? :show, visa %>
+						<%= link_to t('Show'), visa %> | 
+				<% end %>
+					<% if can? :edit, visa %>
+						<%= link_to t('Edit'), edit_visa_path(visa) %> | 
+				<% end %>
+					<% if can? :del, visa %>
+						<%= link_to t('Del'), visa, method: :delete, data: { confirm: t('del_confirm') } %>
+				<% end %>
+				</td>
+			</tr>
+		<% end %>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th><%=t('index_html')%></th>
+					<th><%=t('Passport')%></th>
+					<th><%=t('due_date')%></th>
+					<th><%=t('remaining_days')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- /.box-body -->
+
+	<% if can? :create, Visa %>
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_record'), new_visa_path, method: :get %>
+				</th>
+				<th>
+					<%= button_to t('Import_records'), import_visas_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<% end # if can? :create, Visa %>
+
+
+</div>
+<!-- /.box -->
+

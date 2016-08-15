@@ -1,0 +1,103 @@
+<h3><%= t('major_management') %> - <%= t('Show_record') %></h3>
+
+<p id="notice"><%= notice %></p>
+
+<% if can? :show, Semester%>
+
+	<section class="content">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						<%= t('major_management')%>
+					</h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<!--form role="form" -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= t('major_code') %>: 
+						<%= @major.code %>
+					</div>
+					<div class="form-group">
+						<%= t('Remark') %>: 
+						<%= @major.remark %>
+					</div>
+
+				</div>
+				<!-- /form -->
+			</div>
+		</div>
+
+		<!-- right column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%#= t('contact_info')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<!-- form role="form" -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= t('major_name') %>: 
+						<%= @major.name %>
+					</div>
+					
+					<div class="form-group">
+						<%= t('major_ename') %>: 
+						<%= @major.ename %>
+					</div>
+	
+				</div>
+				<!-- /form -->
+			</div>
+		</div>
+
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Operations')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<table class="table text-center">
+							<tbody>
+							<tr>
+								<td>
+									<%= button_to t('Edit'), edit_major_path(@major), method: "get" %>
+								</td>
+								<td>
+									<%= button_to t('major_management'), majors_path, method: "get" %>
+								</td>
+								<td>
+									<%= button_to t('back_landing'), root_path, method: "get" %>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div><!-- end class row -->
+</section>
+
+<% else %>
+
+<%= t('permission_denied') %>
+
+<% end # if can? :show, Semester%>

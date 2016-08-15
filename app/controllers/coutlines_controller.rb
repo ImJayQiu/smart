@@ -34,7 +34,7 @@ class CoutlinesController < ApplicationController
 		@valid_header = import.valid_header?  # => false
 		@message = import.report.message # => "The following columns are required: email"
 		@error = import.report.invalid_rows.map { |row| [row.model, row.errors] }
-		@report = import.report.success? # => true
+		@success = import.report.success? # => true
 
 
   end

@@ -3,9 +3,9 @@
 		<h3 class="box-title"><%= t("Admins_management")%></h3>
 	</div>
 
-		<% if can? :list, :admins %>
+	<% if can? :list, :admins %>
 
-	<div class="box-body">
+		<div class="box-body">
 		<table class="table text-center">
 			<tr>
 				<th>
@@ -42,10 +42,13 @@
 						<%= link_to t('Show'), user %> 
 				<% end %>
 					<% if can? :edit, user %>
-					|<%= link_to t('Edit'), edit_user_path(user) %> 
-				<% end %>
+						|<%= link_to t('Edit'), edit_user_path(user) %> 
+			<% end %>
+					<% if can? :change_password, :admin %>
+						|<%= link_to t('change_password'), edit_password_user_path(user) %> 
+			<% end %>
 					|<% if can? :del, user %>
-						<%= link_to t('Del'), user, method: :delete, data: { confirm: t('del_confirm') } %>
+					<%= link_to t('Del'), user, method: :delete, data: { confirm: t('del_confirm') } %>
 				<% end %>
 				</td>
 			</tr>

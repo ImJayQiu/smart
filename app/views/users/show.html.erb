@@ -25,30 +25,41 @@
 						<%= t('Code') %>: 
 						<%= @user.code %>
 					</div>
+
 					<div class="form-group">
-						<%= t('Ename') %>: 
-						<%= @user.ename %>
+						<%= t('Passport') %>:
+						<%= @user.passport %>
 					</div>
+
 					<div class="form-group">
 						<%= t('Name') %>: 
 						<%= @user.name %>
 					</div>
+
 					<div class="form-group">
 						<%= t('Gender') %>:
 						<%= @user.gender %>
+					</div>
+
+					<div class="form-group">
+						<%= t('Major') %>:
+						<%= @user.major %>
+					</div>
+
+					<div class="form-group">
+						<%= t('Role') %>:
+						<%= @user.role %>
 					</div>
 					<div class="form-group">
 						<%= t('Birthday') %>:
 						<%= @user.birthday %>
 					</div>
+
 					<div class="form-group">
-						<%= t('Major') %>:
-						<%= @user.major %>
+						<%= t('enroll_date') %>:
+						<%= @user.enroll %>
 					</div>
-					<div class="form-group">
-						<%= t('Role') %>:
-						<%= @user.role %>
-					</div>
+
 
 
 				</div>
@@ -67,6 +78,10 @@
 				<!-- form start -->
 				<!-- form role="form" -->
 				<div class="box-body">
+					<div class="form-group">
+						<%= t('Ename') %>: 
+						<%= @user.ename %>
+					</div>
 
 					<div class="form-group">
 						<%= t('Country') %>:
@@ -93,20 +108,28 @@
 						<%= @user.email %>
 					</div>
 
-					<div class="form-group">
-						<%= t('Passport') %>:
-						<%= @user.passport %>
-					</div>
-					
-					<div class="form-group">
-						<%= t('enroll_date') %>:
-						<%= @user.enroll %>
-					</div>
-
 				</div>
 				<!-- /form -->
 			</div>
 		</div>
+
+
+		<!-- personal des  column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('personal_des')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= @user.des %>
+					</div>
+				</div>
+			</div>
+		</div>
+
 
 
 		<!-- final column -->

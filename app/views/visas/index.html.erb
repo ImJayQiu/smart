@@ -23,6 +23,7 @@
 		<table id="example1" class="table table-bordered table-striped">
 			<thead>
 				<tr>
+					<th><%=t('index_html')%></th>
 					<th><%=t('Passport')%></th>
 					<th><%=t('due_date')%></th>
 					<th><%=t('remaining_days')%></th>
@@ -31,8 +32,9 @@
 			</thead>
 
 			<tbody>
-			<% @visas.each do |visa| %>
+			<% @visas.each_with_index do |visa,i| %>
 				<tr>
+				<td><%= i+1 %></td>
 				<td><%= visa.passport %></td>
 				<td><%= visa.due %></td>
 				<td><%= ( visa.due - DateTime.now ).to_i %></td>
@@ -53,6 +55,7 @@
 
 			<tfoot>
 				<tr>
+					<th><%=t('index_html')%></th>
 					<th><%=t('Passport')%></th>
 					<th><%=t('due_date')%></th>
 					<th><%=t('remaining_days')%></th>

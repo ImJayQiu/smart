@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
 
 	has_many :cschedules, primary_key: :code , foreign_key: :lecturer
+	has_many :visas, primary_key: :passport , foreign_key: :passport 
+
+	devise :database_authenticatable, :trackable, :validatable, :timeoutable, :registerable
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
@@ -24,7 +27,8 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: { message: I18n.t(:unique, :var => I18n.t('Email')) }
 	validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 0.5.megabytes
 
-	devise :database_authenticatable, :trackable, :validatable, :timeoutable
+#	validates_inclusion_of :major, in: Major.select("code").to_a, message: " | error: 所选择的专业不存在,请重新确认专业代码 | The major not exists, please check major code again." 
+
 
 
 	has_attached_file :avatar, styles: { medium: "280x280#", thumb: "50x50#" }, default_url: "/system/users/avatars/missing.jpg"
@@ -46,7 +50,7 @@ class User < ActiveRecord::Base
 
 
 
-
+=begin
 	def import_save
 		if imported_user.map(&:valid?).all?
 			imported_user.each(&:save!)
@@ -76,6 +80,6 @@ class User < ActiveRecord::Base
 			user
 		end    
 	end
-
+=end
 
 end

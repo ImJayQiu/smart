@@ -117,7 +117,47 @@
 			<li/>日期栏位请严格遵守 年/月/日（yyyy/mm/dd） 或者 年-月-日(yyyy-mm-dd) 的写法
 		</ul>
 	</div>
+
+
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<% if can? :list, :students %>
+								<td>
+								<%= button_to t('Students_management'), students_users_path, method: "get" %>
+							</td>
+							<% end # if can? :list, :students %>
+							<% if can? :list, :lecturers %>
+								<td>
+								<%= button_to t('Lecturers_management'), lecturers_users_path, method: "get" %>
+							</td>
+							<% end # if can? :list, :lecturers %>
+							<% if can? :list, :deans %>
+								<td>
+								<%= button_to t('Deans_management'), deans_users_path, method: "get" %>
+							</td>
+							<% end # if can? :list, :deans %>
+							<td>
+								<%= button_to t('back_landing'), root_path, method: "get" %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </section>
 <% else %>
 	<%= t('permission_denied') %>
-<% end # if can? :import, :user %>
+<% end # if can? :create, :user %>

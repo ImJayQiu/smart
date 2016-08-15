@@ -1,8 +1,11 @@
 
 <div class="row">
+
+	<%= link_to students_users_path do %>
+	<div class="clearfix visible-sm-block"></div>
 	<div class="col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box">
-			<span class="info-box-icon bg-red"><i class="icon ion-university"></i></span>
+			<span class="info-box-icon bg-green"><i class="icon ion-university"></i></span>
 
 			<div class="info-box-content">
 				<span class="info-box-text"><%= t('students_qty')%></span>
@@ -13,6 +16,10 @@
 		<!-- /.info-box -->
 	</div>
 	<!-- /.col -->
+	<% end # link_to students_users_path do %>
+	
+	<%= link_to lecturers_users_path do %>
+	<div class="clearfix visible-sm-block"></div>
 	<div class="col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box">
 			<span class="info-box-icon bg-aqua"><i class="icon ion-person-stalker"></i></span>
@@ -25,23 +32,28 @@
 		<!-- /.info-box -->
 	</div>
 	<!-- /.col -->
+	<% end # link_to lecturers_users_path do %>
+
 
 	<!-- fix for small devices only -->
+	<%= link_to renew_visas_path do %>
 	<div class="clearfix visible-sm-block"></div>
-
-	<div class="col-md-3 col-sm-6 col-xs-12">
+		<div class="col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box">
-			<span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+			<span class="info-box-icon bg-red"><i class="ion ion-refresh"></i></span>
 
 			<div class="info-box-content">
-				<span class="info-box-text">Sales</span>
-				<span class="info-box-number">760</span>
+				<span class="info-box-text"><%= t('visa_renew') %></span>
+				<span class="info-box-number"><%= $renews_count %></span>
 			</div>
 			<!-- /.info-box-content -->
 		</div>
 		<!-- /.info-box -->
 	</div>
+<% end %>
+
 	<!-- /.col -->
+	<div class="clearfix visible-sm-block"></div>
 	<div class="col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box">
 			<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
@@ -55,4 +67,5 @@
 		<!-- /.info-box -->
 	</div>
 	<!-- /.col -->
+
 </div>
