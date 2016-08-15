@@ -12,6 +12,10 @@ class ImportUser
 	column :passport, required: true
 	column :role, required: true
 
+	column :country
+	column :province
+	column :city
+
 	after_build do |user|
 		user.email = user.code + "@dpu-caic.edu"
 		user.password = user.passport
