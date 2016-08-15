@@ -1,7 +1,9 @@
 ---
 en:
-  country_analysis: Student Analysis by Country 
-  major_analysis: Student Analysis by Major
+  city_analysis: Students Analysis by City 
+  province_analysis: Students Analysis by Province 
+  country_analysis: Students Analysis by Country 
+  major_analysis: Students Analysis by Major
   students_analysis: Students Analysis 
   my_visas: My Visa Records 
   major_code: Major Code 

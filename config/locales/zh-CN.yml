@@ -1,5 +1,7 @@
 ---
 zh-CN:
+  city_analysis: 城市分布统计 
+  province_analysis: 省份分布统计 
   country_analysis: 生源分布统计 
   major_analysis: 各专业分布统计
   students_analysis: 在校生数据分析
