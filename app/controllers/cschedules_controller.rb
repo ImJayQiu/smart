@@ -16,7 +16,8 @@ class CschedulesController < ApplicationController
 	# GET /cschedules/1.json
 	def show
 		@lecturer = User.where(code: @cschedule.lecturer)
-		@total_score = @cschedule.att + @cschedule.homework + @cschedule.project + @cschedule.report + @cschedule.mid + @cschedule.fin + @cschedule.quiz + @cschedule.other rescue nil
+		@cscore = Cscore.where(ccode: @cschedule.code).first
+#		@total_score = @cscore.att + @cscore.homework + @cscore.project + @cscore.report + @cscore.mid + @cscore.fin + @cscore.quiz + @cscore.other rescue nil
 	end
 
 
@@ -99,6 +100,6 @@ class CschedulesController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def cschedule_params
-		params.require(:cschedule).permit(:credit, :weekday, :code, :term_code, :c_code, :stime, :etime, :lecturer, :room, :att, :homework, :project, :report, :mid, :fin, :quiz, :other, :remark)
+		params.require(:cschedule).permit(:credit, :weekday, :code, :term_code, :c_code, :stime, :etime, :lecturer, :room) #, :att, :homework, :project, :report, :mid, :fin, :quiz, :other, :remark)
 	end
 end

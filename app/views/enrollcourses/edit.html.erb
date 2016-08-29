@@ -1,0 +1,13 @@
+<h3><%= t('enrollcourses_management')%> - <%= t('Edit_record')%></h3>
+
+<% if can? :edit, Enrollcourse %>
+
+	<%= render 'form' %>
+
+<% else %>
+
+	<%= t('permission_denied') %>
+
+<% end # if can? :edit, Enrollcourse %>
+
+

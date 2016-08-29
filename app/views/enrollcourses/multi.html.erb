@@ -1,0 +1,134 @@
+
+<section class="content">
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<%= form_tag multienroll_enrollcourses_path, multipart: true do %>
+			<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"><%= t('enrollcourses_management')%></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= t("student_code")%>:
+							</td>
+							<td>
+								<%= t("cc_code")%>:
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<% if current_user.role == "Student" %>
+									<%= text_field_tag :student_code, nil, required: true, value: current_user.code, disabled: true  %>
+							<% else %>
+									<%= text_area_tag :student_code, nil, required: true, rows: 10 %>
+								<% end # if current_user.role == "Student" %>
+							</td>
+							<td>
+								<%= text_area_tag :course_code, nil, required: true, rows: 10 %>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan=2>
+								<%= submit_tag t("Import") %>
+							<% end %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"><%= t('csv_example')%></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td><%= t('Code') %></td>
+							<td><%= t('Ccode') %></td>
+							<td>选课结果</td>
+						</tr>
+						<tr>
+							<td>student002</td>
+							<td>201603005</td>
+							<td>student002 : 201603005</td>
+						</tr>
+						<tr>
+							<td>student012</td>
+							<td>201603032</td>
+							<td>student002 : 201603032</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>201603055</td>
+							<td>student002 : 201603055</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>student012 : 201603005</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>student012 : 201603032</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>student012 : 201603055</td>
+						</tr>
+
+						<tr>
+							<td><%= t('Code') %></td>
+							<td><%= t('Ccode') %></td>
+							<td>选课结果</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= button_to t('enrollcourses_management'), enrollcourses_path, method: "get" %>
+							</td>
+
+							<td>
+								<%= button_to t('back_landing'), root_path, method: "get" %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end column  -->
+
+</section>

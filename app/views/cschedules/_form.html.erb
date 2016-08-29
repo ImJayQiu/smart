@@ -71,12 +71,12 @@
 
 					<div class="form-group">
 						<%= f.label t('cstime') %> :
-						<%= f.text_field :stime, class: 'form-control', required: true %>
+						<%= f.text_field :stime, value: time(@cschedule.stime), class: 'form-control', required: true %>
 					</div>
 
 					<div class="form-group">
 						<%= f.label t('cetime') %> :
-						<%= f.text_field :etime, class: 'form-control', required: true %>
+						<%= f.text_field :etime, value: time(@cschedule.etime), class: 'form-control', required: true %>
 					</div>
 
 					<div class="form-group">
@@ -107,87 +107,6 @@
 			</div>
 		</div>
 		<!-- final column end -->
-
-
-
-
-
-		<!-- column -->
-		<div class="col-md-6">
-			<!-- general form elements -->
-			<div class="box box-primary">
-				<div class="box-header with-border">
-					<h3 class="box-title"><%= t('cschdeule_scores_ac')%></h3>
-				</div>
-				<!-- /.box-header -->
-
-				<!-- form start -->
-				<div class="box-body">
-					<div class="form-group">
-						<%= f.label t('catt') %> :
-						<%= f.text_field :att, class: 'form-control' %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('chomework') %> :
-						<%= f.text_field :homework, class: 'form-control' %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('cproject') %> :
-						<%= f.text_field :project, class: 'form-control'%>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('creport') %> :
-						<%= f.text_field :report, class: 'form-control' %>
-					</div>
-
-				</div>
-				<!-- form end -->
-
-			</div>
-		</div>
-		<!-- column end -->
-
-
-		<!-- column -->
-		<div class="col-md-6">
-			<!-- general form elements -->
-			<div class="box box-primary">
-				<div class="box-header with-border">
-					<h3 class="box-title"><%= t('cschdeule_scores_exam')%></h3>
-				</div>
-				<!-- /.box-header -->
-
-				<!-- form start -->
-				<div class="box-body">
-					<div class="form-group">
-						<%= f.label t('cquiz') %> :
-						<%= f.text_field :quiz, class: 'form-control' %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('cmid') %> :
-						<%= f.text_field :mid, class: 'form-control' %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('cfin') %> :
-						<%= f.text_field :fin, class: 'form-control' %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('cother') %> :
-						<%= f.text_field :other, class: 'form-control' %>
-					</div>
-
-				</div>
-				<!-- form end -->
-
-			</div>
-		</div>
-		<!-- column end -->
 
 
 		<!-- final column -->

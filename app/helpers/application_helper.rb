@@ -1,6 +1,11 @@
 module ApplicationHelper
 
 	def time(time)
-		time.strftime("%H:%M")
-	end
-end
+		if time.nil?
+			""
+		else
+			time.strftime("%H:%M")
+		end #if time.nil?
+	end #def time(time)
+
+end #module ApplicationHelper

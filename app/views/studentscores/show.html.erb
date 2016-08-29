@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student code:</strong>
+  <%= @studentscore.student_code %>
+</p>
+
+<p>
+  <strong>Course code:</strong>
+  <%= @studentscore.course_code %>
+</p>
+
+<p>
+  <strong>Att:</strong>
+  <%= @studentscore.att %>
+</p>
+
+<p>
+  <strong>Homework:</strong>
+  <%= @studentscore.homework %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @studentscore.project %>
+</p>
+
+<p>
+  <strong>Report:</strong>
+  <%= @studentscore.report %>
+</p>
+
+<p>
+  <strong>Mid:</strong>
+  <%= @studentscore.mid %>
+</p>
+
+<p>
+  <strong>Fin:</strong>
+  <%= @studentscore.fin %>
+</p>
+
+<p>
+  <strong>Quiz:</strong>
+  <%= @studentscore.quiz %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @studentscore.remark %>
+</p>
+
+<%= link_to 'Edit', edit_studentscore_path(@studentscore) %> |
+<%= link_to 'Back', studentscores_path %>

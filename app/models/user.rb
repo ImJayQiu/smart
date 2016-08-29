@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
 	has_many :cschedules, primary_key: :code , foreign_key: :lecturer
 	has_many :visas, primary_key: :passport , foreign_key: :passport 
+	has_many :ustatuses, primary_key: :code , foreign_key: :code 
 
 	devise :database_authenticatable, :trackable, :validatable, :timeoutable, :registerable
 

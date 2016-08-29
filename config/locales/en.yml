@@ -1,5 +1,10 @@
 ---
 en:
+  cscores_management: Scores Setting & Management 
+  idle_class: "The course the you select is not exist, please check again !" 
+  enrollcourses_management: Enroll Courses 
+  multi_enrollcourses: Multi-Enroll 
+  student_code: Student Code 
   city_analysis: Students Analysis by City 
   province_analysis: Students Analysis by Province 
   country_analysis: Students Analysis by Country 
@@ -66,6 +71,7 @@ en:
   Edit_record: 'Edit Record'
   Show_record: 'Show Record'
   Import_records: 'Import Records'
+  Export_records: 'Export All Records'
   Error: 'Import errors'
   Remark: 'Remark'
   due_date: 'Visa Expire Date' 

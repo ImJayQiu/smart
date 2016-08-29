@@ -1,0 +1,84 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><%= t('enrollcourses_management') %></h3>
+	</div>
+	<!-- /.box-header -->
+	<% if can? :create, Enrollcourse %>
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_record'), new_enrollcourse_path, method: :get %>
+				</th>
+				<th>
+					<%#= button_to t('Import_records'), import_visas_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<% end # if can? :create, Visa %>
+
+
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th><%=t('index_html')%></th>
+					<th><%=t('student_code')%></th>
+					<th><%=t('cc_code')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</thead>
+
+			<tbody>
+			<% @enrollcourses.each_with_index do |enrollcourse,i| %>
+				<tr>
+				<td><%= i+1 %></td>
+				<td><%= enrollcourse.code %></td>
+				<td><%= enrollcourse.ccode %></td>
+				<td>
+					<% if can? :show, enrollcourse %>
+						<%= link_to t('Show'), enrollcourse %> | 
+				<% end %>
+					<% if can? :edit, enrollcourse %>
+						<%= link_to t('Edit'), edit_enrollcourse_path(enrollcourse) %> | 
+				<% end %>
+					<% if can? :del, enrollcourse %>
+						<%= link_to t('Del'), enrollcourse, method: :delete, data: { confirm: t('del_confirm') } %>
+				<% end %>
+				</td>
+			</tr>
+		<% end %>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<th><%=t('index_html')%></th>
+					<th><%=t('student_code')%></th>
+					<th><%=t('cc_code')%></th>
+					<th><%=t('Operations')%></th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- /.box-body -->
+
+	<% if can? :create, Visa %>
+		<div class="box-body">
+		<table class="table text-center">
+			<tr>
+				<th>
+					<%= button_to t('New_record'), new_enrollcourse_path, method: :get %>
+				</th>
+				<th>
+					<%#= button_to t('Import_records'), import_visas_path, method: :get %>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<% end # if can? :create, Enrollcourse %>
+
+
+</div>
+<!-- /.box -->
+

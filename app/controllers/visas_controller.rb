@@ -15,7 +15,12 @@ class VisasController < ApplicationController
 	end
 
 	def renew 
-	#	@renews = Visa.select('id, max(due) as due, passport').where("? < due && due < ?", DateTime.now-1.days, DateTime.now + 15.days).group(:passport)
+
+		respond_to do |format|
+			format.html
+			format.csv { send_data $renews.as_csv } # from Home controller
+		end
+
 	end
 
 	def expired 

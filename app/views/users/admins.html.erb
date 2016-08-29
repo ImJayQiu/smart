@@ -5,18 +5,7 @@
 
 	<% if can? :list, :admins %>
 
-		<div class="box-body">
-		<table class="table text-center">
-			<tr>
-				<th>
-					<%= button_to t('New_user'), new_user_path, method: :get %>
-				</th>
-				<th>
-					<%= button_to t('Import_users'), import_users_path, method: :get %>
-				</th>
-			</tr>
-		</table>
-	</div>
+	<%= render "/users/add_users_table" %>
 
 
 	<!-- /.box-header -->
@@ -67,20 +56,8 @@
 	</div>
 	<!-- /.box-body -->
 
-	<div class="box-body">
-		<table class="table text-center">
-			<tr>
-				<th>
-					<%= button_to t('New_user'), new_user_path, method: :get %>
-				</th>
-				<th>
-					<%= button_to t('Import_users'), import_users_path, method: :get %>
-				</th>
-			</tr>
-		</table>
-	</div>
-
-
+	<%= render "/users/add_users_table" %>
+	
 </div>
 <!-- /.box -->
 

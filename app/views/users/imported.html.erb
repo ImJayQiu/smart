@@ -1,7 +1,47 @@
 
 <% if can? :create, :user %>
 
+
 	<section class="content">
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= button_to t('Back'), import_users_path, method: "get" %>
+							</td>
+							<% if can? :list, :students %>
+								<td>
+								<%= button_to t('Students_management'), students_users_path, method: "get" %>
+							</td>
+							<% end # if can? :list, :students %>
+							<% if can? :list, :lecturers %>
+								<td>
+								<%= button_to t('Lecturers_management'), lecturers_users_path, method: "get" %>
+							</td>
+							<% end # if can? :list, :lecturers %>
+							<% if can? :list, :deans %>
+								<td>
+								<%= button_to t('Deans_management'), deans_users_path, method: "get" %>
+							</td>
+							<% end # if can? :list, :deans %>
+							<td>
+								<%= button_to t('back_landing'), root_path, method: "get" %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end column  -->
+
 	<!-- final column -->
 	<div class="col-md-12">
 		<!-- general form elements -->
@@ -13,6 +53,7 @@
 			<div class="box-body">
 				<div class="form-group">
 					Message: <%= @message %><br/>
+					success: <%= @success %><br/>
 				</div>
 				<div class="form-group">
 					<% if @success == "false" %>
@@ -55,9 +96,6 @@
 	<div class="col-md-12">
 		<!-- general form elements -->
 		<div class="box box-primary">
-			<div class="box-header with-border">
-				<h3 class="box-title"><%= t('Operations')%></h3>
-			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
 				<div class="form-group">

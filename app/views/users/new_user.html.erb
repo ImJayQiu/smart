@@ -1,0 +1,12 @@
+<h3><%= t('Users_management') %> - <%= t('New_record') %></h3>
+
+<% if can? :create, @user %>
+
+	<%= render 'form_new_user' %>
+
+<% else %>
+
+	<%= t("permission_denied") %>
+
+<% end %>
+

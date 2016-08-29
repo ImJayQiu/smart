@@ -1,0 +1,86 @@
+<%= form_for(@enrollcourse) do |f| %>
+	<% if @enrollcourse.errors.any? %>
+	<div id="error_explanation">
+	<h2><%= pluralize(@enrollcourse.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	<ul>
+		<% @enrollcourse.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+	<% end %>
+	</ul>
+</div>
+  <% end %>
+
+
+<section class="content">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('visa_management')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.label t('student_code') %>
+						<% if current_user.role == "Student" %>
+							<%= f.text_field :code, class: 'form-control', disabled: true, value: current_user.code %>
+					<% else %>
+							<%= f.text_field :code, class: 'form-control' %>
+					<% end %>
+					</div>
+					<div class="form-group">
+						<%= f.label t('cc_code') %>
+						<%= f.text_field :ccode, class: 'form-control' %>
+					</div>
+					<div class="form-group">
+						<%= f.label t('Remark') %>
+						<%= f.text_field :remark, class: 'form-control' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Operations')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<table class="table text-center">
+							<tr>
+								<td>
+									<%= f.submit t('Submit') %>
+								<% end %>
+								</td>
+								<td>
+									<%= button_to t('visa_management'), visas_path, method: "get" %>
+								</td>
+
+								<td>
+									<%= button_to t('back_landing'), root_path, method: "get" %>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+
+</div><!-- end class row -->
+</section>
+

@@ -1,5 +1,10 @@
 ---
 zh-CN:
+  cscores_management: 成绩设定&管理 
+  idle_class: "所选的课程不存在，请重新确认！" 
+  enrollcourses_management: 选课管理
+  multi_enrollcourses: 批量选课
+  student_code: 学号
   city_analysis: 城市分布统计 
   province_analysis: 省份分布统计 
   country_analysis: 生源分布统计 
@@ -65,6 +70,7 @@ zh-CN:
   Edit_record: '编辑内容'
   Show_record: '查看内容'
   Import_records: '批量导入数据'
+  Export_records: '导出所有数据'
   Error: '导入错误'
   Remark: '备注'
   due_date: '签证到期日期' 

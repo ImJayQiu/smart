@@ -61,12 +61,12 @@
 
 					<div class="form-group">
 						<%= t('cstime') %> :
-						<%= @cschedule.stime %>
+						<%= time(@cschedule.stime) %>
 					</div>
 
 					<div class="form-group">
 						<%= t('cetime') %> :
-						<%= @cschedule.etime %>
+						<%= time(@cschedule.etime) %>
 					</div>
 
 					<div class="form-group">
@@ -121,22 +121,22 @@
 				<div class="box-body">
 					<div class="form-group">
 						<%= t('catt') %> :
-						<%= @cschedule.att %>
+						<%= @cscore.att rescue nil  %>
 					</div>
 
 					<div class="form-group">
 						<%= t('chomework') %> :
-						<%= @cschedule.homework %>
+						<%= @cscore.homework rescue nil  %>
 					</div>
 
 					<div class="form-group">
 						<%= t('cproject') %> :
-						<%= @cschedule.project %>
+						<%= @cscore.project rescue nil  %>
 					</div>
 
 					<div class="form-group">
 						<%= t('creport') %> :
-						<%= @cschedule.report %>
+						<%= @cscore.report rescue nil  %>
 					</div>
 
 				</div>
@@ -160,22 +160,22 @@
 				<div class="box-body">
 					<div class="form-group">
 						<%= t('cquiz') %> :
-						<%= @cschedule.quiz %>
+						<%= @cscore.quiz rescue nil  %>
 					</div>
 
 					<div class="form-group">
 						<%= t('cmid') %> :
-						<%= @cschedule.mid %>
+						<%= @cscore.mid rescue nil  %>
 					</div>
 
 					<div class="form-group">
 						<%= t('cfin') %> :
-						<%= @cschedule.fin %>
+						<%= @cscore.fin rescue nil  %>
 					</div>
 
 					<div class="form-group">
 						<%= t('cother') %> :
-						<%= @cschedule.other %>
+						<%= @cscore.other rescue nil  %>
 					</div>
 
 				</div>

@@ -1,6 +1,30 @@
 Rails.application.routes.draw do
 
+	resources :studentscores do
+		collection do
+			get :import
+			post :imported
+		end
+	end
+
+	resources :cscores do
+		collection do
+			get :import
+			post :imported
+		end
+	end
+
+	resources :enrollcourses do
+		collection do
+			get :import
+			post :imported
+			get :multi
+			post :multienroll
+		end
+	end
+
 	resources :majors
+
 	resources :semesters
 
 	resources :cschedules do
@@ -9,7 +33,6 @@ Rails.application.routes.draw do
 			post :imported
 		end
 	end
-
 
 	resources :coutlines do
 		collection do
@@ -34,8 +57,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-	#	devise_for :users, :skip => [:registrations]                                          
-	devise_for :users 	# must be at the top
+	devise_for :users 	# must before users
 
 	resources :users do
 		collection do
@@ -44,14 +66,14 @@ Rails.application.routes.draw do
 			get :deans
 			get :admins
 			get :import
-			#get ':id/edit_password', to: "users#edit_password", as: "edit_password"
+			get :new_user # get create_user form 
+			post :create_user # post create_user form to create_user action
 			post :imported
-			post :update_password
 		end
 		member do
-			patch :update_password
-			put :update_password
 			get :edit_password
+			put :update_password
+			patch :update_password
 		end
 	end
 

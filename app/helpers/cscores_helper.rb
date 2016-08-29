@@ -1,0 +1,2 @@
+module CscoresHelper
+end

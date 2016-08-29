@@ -1,0 +1,17 @@
+<%#####  options of add users  ####%>
+
+<div class="box-body">
+	<table class="table text-center">
+		<tr>
+			<% if can? :register, :user %>
+				<th>
+				<%= button_to t('New_user'), new_user_users_path, method: :get %>
+			</th>
+			<% end # if can? :register, :user %>
+			<th>
+				<%= button_to t('Import_users'), import_users_path, method: :get %>
+			</th>
+		</tr>
+	</table>
+</div>
+

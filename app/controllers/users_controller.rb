@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
 	# GET /users/1
 	# GET /users/1.json
+
 	def show
 	end
 
@@ -39,6 +40,11 @@ class UsersController < ApplicationController
 	def new
 		@user = User.new
 	end
+
+	def new_user 
+		@user = User.new
+	end
+
 
 	def import
 
@@ -79,7 +85,7 @@ class UsersController < ApplicationController
 				format.html { redirect_to @user, notice: '用户密码已经成功更改！ | User password was successfully updated.' }
 				format.json { render :show, status: :ok, location: @user }
 			else
-				format.html { render :edit }
+				format.html { render :edit_password, notice:"两次输入的密码不一致，或者密码长度不符合要求，请重新输入！" }
 				format.json { render json: @user.errors, status: :unprocessable_entity }
 			end
 		end
@@ -89,6 +95,24 @@ class UsersController < ApplicationController
 
 	# POST /users
 	# POST /users.json
+
+	def create_user 
+
+		##################if create single user ##################
+
+		@user = User.new(new_user_params)
+
+		respond_to do |format|
+			if @user.save
+				format.html { redirect_to @user, notice: '用户添加成功！ | User was successfully created.' }
+				format.json { render :show, status: :created, location: @user }
+			else
+				format.html { render :new_user }
+				format.json { render json: @user.errors, status: :unprocessable_entity }
+			end
+		end
+
+	end
 
 
 	def create
@@ -115,7 +139,7 @@ class UsersController < ApplicationController
 		respond_to do |format|
 
 			if @user.update(user_params)
-				format.html { redirect_to @user, notice: 'User was successfully updated.' }
+				format.html { redirect_to @user, notice: '用户资料已经成功保存！| User was successfully updated.' }
 				format.json { render :show, status: :ok, location: @user }
 			else
 				format.html { render :edit }
@@ -130,7 +154,7 @@ class UsersController < ApplicationController
 	def destroy
 		@user.destroy
 		respond_to do |format|
-			format.html { redirect_to request.referrer, notice: 'User was successfully destroyed.' }
+			format.html { redirect_to request.referrer, notice: '用户已经被成功删除！| User was successfully delete.' }
 			format.json { head :no_content }
 		end
 	end
@@ -151,5 +175,10 @@ class UsersController < ApplicationController
 	def user_pw_params
 		params.require(:user).permit(:password, :password_confirmation )
 	end
+
+	def new_user_params
+		params.require(:user).permit(:des, :enroll, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role, :password, :password_confirmation)
+	end
+
 
 end

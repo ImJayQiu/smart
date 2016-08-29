@@ -13,6 +13,9 @@
 				<th>
 					<%= button_to t('Import_records'), import_visas_path, method: :get %>
 				</th>
+				<th>
+					<%= button_to t('Export_records'), renew_visas_path(format: "csv"), method: :get %>
+				</th>
 			</tr>
 		</table>
 	</div>
@@ -49,7 +52,7 @@
 				<% end %>
 				</td>
 			</tr>
-			<% end %>
+		<% end %>
 			</tbody>
 
 			<tfoot>

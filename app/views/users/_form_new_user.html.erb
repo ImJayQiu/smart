@@ -1,0 +1,288 @@
+<%= form_for(@user, :url => { action: 'create_user' } ) do |f| %>
+	<% if @user.errors.any? %>
+	<div id="error_explanation">
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+	<% end %>
+	</ul>
+</div>
+  <% end %>
+
+
+<section class="content">
+	<div class="row">
+
+		<!--  column1 -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('personal_info')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= f.label t('Code') %>
+						<% if can? :manage, :user_code %>
+							<%= f.text_field :code, class: 'form-control' , required: true%>
+					<% else %>
+							<%= f.text_field :code, class: 'form-control', disabled: true %>
+					<% end %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Passport') %>
+						<% if can? :manage, :user_passport %>
+							<%= f.text_field :passport, class: 'form-control' , required: true%>
+					<% else %>
+							<%= f.text_field :passport, class: 'form-control', disabled: true %>
+					<% end %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Name') %>
+						<% if can? :manage, :user_name %>
+							<%= f.text_field :name, class: 'form-control' , required: true%>
+					<% else %>
+							<%= f.text_field :name, class: 'form-control', disabled: true %>
+						<% end # if can? :manage, :user_name %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Gender') %> : 
+						<% if can? :manage, :user_gender %>
+							<%= f.select :gender, A::GENDER, class: 'form-control' , required: true%>
+					<% else %>
+							<%= f.select :gender, A::GENDER, class: 'form-control', disabled: true %>
+						<% end # if can? :manage, :user_gender %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Major') %> :
+						<% if can? :manage, :user_major %>
+							<%= f.collection_select :major, Major.all, :code, :name, prompt: "- Select -" , required: true%>
+					<% else %>
+							<%= f.text_field :major, class: 'form-control', disabled: true %>
+					<% end %>
+					</div>
+
+
+					<div class="form-group">
+						<%= f.label t('Birthday') %>
+						<div class="input-group date">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<%= f.text_field :birthday, class: 'form-control', id: "sdate" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('enroll_date') %>
+						<div class="input-group date">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<% if can? :manage, :user_enroll %>
+								<%= f.text_field :enroll, class: 'form-control', id: "edate", required: true %>
+						<% else %>
+								<%= f.text_field :enroll, class: 'form-control', id: "datepicker", disabled: true %>
+							<% end # if can? :manage, :user_enroll %>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--  column1 end -->
+
+		<!-- column2 -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('contact_info')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= f.label t('Ename') %>
+						<%= f.text_field :ename, class: 'form-control' %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Country') %>
+						<%= f.text_field :country, class: 'form-control' %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Province') %>
+						<%= f.text_field :province, class: 'form-control' %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('City') %>
+						<%= f.text_field :city, class: 'form-control' %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Address') %>
+						<%= f.text_field :address, class: 'form-control' %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Phone') %>
+						<%= f.text_field :phone, class: 'form-control' %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('Email') %>
+						<%= f.text_field :email, class: 'form-control' , required: true%>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<!-- column2 end -->
+
+		<!-- column3 -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Role')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= f.label t('Role') %> : 
+						<% if can? :manage, :user_role %>
+							<%= f.select :role, A::ROLE, class: 'form-control' , required: true%>
+					<% else %>
+							<%= f.text_field :role, class: 'form-control', disabled: true %>
+						<% end # if can? :manage, :user_role %>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- column3 end -->
+
+
+		<!-- column4 -->
+		<div class="col-md-6">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('upload_photo')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<!-- form start -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.file_field :avatar, class: 'form-control' %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- column4 end -->
+
+
+		<!-- personal des column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('personal_des')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<%= f.text_area :des, class: 'form-control' %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- personal des column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('setting_password')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+
+					<div class="form-group">
+						<%= f.password_field :password, autocomplete: "off", placeholder: "请输入密码 | Password", class: "form-control"  %>
+					</div>
+
+					<div class="form-group">
+						<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "请确认密码 | Password Confirm", class: "form-control"  %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- final column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('Operations')%></h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="form-group">
+						<table class="table text-center">
+							<tr>
+								<td>
+									<%= f.submit t('Submit') %>
+								<% end %>
+								</td>
+								<% if can? :list, :students %>
+									<td>
+									<%= button_to t('Students_management'), students_users_path, method: "get" %>
+								</td>
+								<% end # if can? :list, :students %>
+								<% if can? :list, :lecturers %>
+									<td>
+									<%= button_to t('Lecturers_management'), lecturers_users_path, method: "get" %>
+								</td>
+								<% end # if can? :list, :lecturers %>
+								<% if can? :list, :deans %>
+									<td>
+									<%= button_to t('Deans_management'), deans_users_path, method: "get" %>
+								</td>
+								<% end # if can? :list, :deans %>
+								<td>
+									<%= button_to t('back_landing'), root_path, method: "get" %>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+</div><!-- end class row -->
+</section>
+
