@@ -1,0 +1,207 @@
+
+<section class="content">
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<%= form_tag imported_hazards_path, multipart: true do %>
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title"><%= t('hazards_profile')%></h3>
+				</div>
+				<!-- /.box-header -->
+
+				<% if can? :create, :hazard_profile %>
+
+					<div class="box-body table-responsive ">
+						<div class="form-group">
+							<table class="table text-center">
+								<tr>
+									<td>
+										<%= t("select_import_file")%>:
+									</td>
+									<td>
+										<%= file_field_tag :file, required: true %>
+									</td>
+
+									<%= hidden_field :u_id, params[:u_id], value: current_user.id %>
+									<% if current_user.role != "Admin"%>
+									<%= hidden_field :u_country, params[:u_country], value: current_user.country %>
+								<% end %>
+									<td>
+										<%= submit_tag t("Import") %>
+									<% end %>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+					<% end # if can? :create, :hazard_profile %>
+
+			</div>
+	</div>
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title"><%= t('csv_example')%></h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive ">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<th><%=t('country')%></th>
+							<th><%=t('year')%></th>
+							<th title=<%=t('htype')%>>HT</th>
+							<th title=<%=t('hde')%>>HDE</th>
+							<th title=<%=t('hda')%>>HDA</th>
+							<th title=<%=t('cd')%>>CD</th>
+							<th title=<%=t('rd')%>>RD</th>
+							<th title=<%=t('pd')%>>PD</th>
+							<th title=<%=t('pi')%>>PI</th>
+							<th title=<%=t('pm')%>>PM</th>
+							<th title=<%=t('pa')%>>PA</th>
+							<th title=<%=t('prl')%>>PRL</th>
+							<th title=<%=t('pe')%>>PE</th>
+							<th title=<%=t('ha')%>>HA</th>
+							<th title=<%=t('eca')%>>ECA</th>
+						</tr>
+						<tr>
+							<td>Thailand</td>
+							<td>2016</td>
+							<td>FF</td>
+							<td>10</td>
+							<td>15</td>
+							<td>10</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>20</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>Thailand</td>
+							<td>2016</td>
+							<td>FF</td>
+							<td>10</td>
+							<td>15</td>
+							<td>10</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>20</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>Thailand</td>
+							<td>2016</td>
+							<td>FF</td>
+							<td>10</td>
+							<td>15</td>
+							<td>10</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>20</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>Thailand</td>
+							<td>2016</td>
+							<td>FF</td>
+							<td>10</td>
+							<td>15</td>
+							<td>10</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>20</td>
+							<td>15</td>
+							<td>20</td>
+							<td>30</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+							<td>.<br>.<br>.</td>
+						</tr>
+						<tr>
+							<th><%=t('country')%></th>
+							<th><%=t('year')%></th>
+							<th title=<%=t('htype')%>>HT</th>
+							<th title=<%=t('hde')%>>HDE</th>
+							<th title=<%=t('hda')%>>HDA</th>
+							<th title=<%=t('cd')%>>CD</th>
+							<th title=<%=t('rd')%>>RD</th>
+							<th title=<%=t('pd')%>>PD</th>
+							<th title=<%=t('pi')%>>PI</th>
+							<th title=<%=t('pm')%>>PM</th>
+							<th title=<%=t('pa')%>>PA</th>
+							<th title=<%=t('prl')%>>PRL</th>
+							<th title=<%=t('pe')%>>PE</th>
+							<th title=<%=t('ha')%>>HA</th>
+							<th title=<%=t('eca')%>>ECA</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<ul>
+			<li/>Please use Microsoft Office Excel, Open Office Calc or Google Docs to save data in CSV format.
+				<li/>Please don't change the name of the first row.
+		</ul>
+	</div>
+
+
+	<!-- final column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive ">
+				<div class="form-group">
+					<table class="table text-center">
+						<tr>
+							<td>
+								<%= button_to t('back_landing'), root_path, method: "get" %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end column  -->
+
+</section>

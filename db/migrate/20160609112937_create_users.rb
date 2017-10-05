@@ -2,10 +2,11 @@ class CreateUsers < ActiveRecord::Migration
 	def change
 		create_table :users do |t|
 			t.string :code
-			t.string :name
-			t.string :ename
+			t.string :sname
+			t.string :fname
 			t.string :gender
-			t.string :passport
+			t.string :research
+			t.string :department
 			t.date :birthday
 			t.date :enroll
 			t.string :city
@@ -14,7 +15,6 @@ class CreateUsers < ActiveRecord::Migration
 			t.string :role
 			t.string :phone
 			t.string :address
-			t.string :major
 			t.text :des
 
 			t.timestamps null: false

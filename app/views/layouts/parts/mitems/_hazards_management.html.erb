@@ -1,0 +1,46 @@
+
+<% if can? :list, :hazards %>
+	<li class="treeview">
+		<a href="#">
+			<i class="fa fa-users"></i>
+			<span><%= t("hazards_management") %></span>
+			<i class="fa fa-angle-left pull-right"></i>
+		</a>
+
+
+		<ul class="treeview-menu">
+
+			<!-- Hazards Management -->
+			<% if can? :list, :hazardtype %>
+				<li>
+					<%= link_to hazardtypes_path do %>
+						<i class="fa fa-graduation-cap"></i><%= t("hazardtypes_management") %>
+					<% end # link_to hazardtypes_path do %>
+					</li>
+					<% end #can mng  %>
+
+
+
+					<!-- Management Hazard Profile -->
+					<% if can? :manage, :hazard_profile %>
+						<li>
+							<%= link_to hazards_path do %>
+								<i class="fa fa-user-plus"></i><%= t("hazards_profile_management") %>
+						<% end %>
+						</li>
+						<% end # if can? :manage, :hazard_profile %>
+
+
+						<!-- CSV Import Hazard Profile -->
+						<% if can? :import, :hazard_profile %>
+							<li>
+								<%= link_to import_hazards_path do %>
+									<i class="fa fa-user-plus"></i><%= t("import_hazards") %>
+							<% end %>
+							</li>
+							<% end # if can? :import, :hazard_profile %>
+		</ul>
+	</li>
+
+	<% end # if can? :list, :hazards %>
+

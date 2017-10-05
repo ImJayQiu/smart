@@ -5,20 +5,21 @@ class ImportUser
 
 
 	column :code, required: true
-	column :name, required: true
+	column :fname, required: true
 	column :gender, required: true
-	column :major, required: true
+	column :department, required: true
 	column :enroll, required: true
-	column :passport, required: true
+	column :research, required: true
 	column :role, required: true
+	column :email, required: true
+	column :phone, required: true
 
 	column :country
 	column :province
 	column :city
 
 	after_build do |user|
-		user.email = user.code + "@dpu-caic.edu"
-		user.password = user.passport
+		user.password = user.phone
 	end
 
 end

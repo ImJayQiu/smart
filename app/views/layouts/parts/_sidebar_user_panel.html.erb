@@ -1,12 +1,12 @@
 
 <div class="user-panel">
 	<div class="pull-left image">
-		<%= image_tag current_user.avatar.url(:thumb), class: "img-circle", alt: current_user.name %>
+		<%= image_tag current_user.avatar.url(:thumb), class: "img-circle", alt: current_user.fname %>
 	</div>
 	<div class="pull-left info">
-		<p><%= "#{current_user.name} | #{current_user.ename}" %></p>
+		<p><%= "#{current_user.fname} | #{current_user.country}" %></p>
 		<%= link_to user_path(current_user) do %>
-			<i class="fa fa-circle text-success"></i><%= current_user.code %>
+			<i class="fa fa-circle text-success"></i><%= current_user.department %>
 <% end %>
 	</div>
 </div>

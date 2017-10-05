@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('country') %>:</strong>
+  <%= @hazard.country %>
+</p>
+
+
+<p>
+  <strong><%= t('htype') %>:</strong>
+  <%= @hazard.htype %>
+</p>
+
+<p>
+  <strong><%= t('year') %>:</strong>
+  <%= @hazard.year %>
+</p>
+
+<p>
+  <strong><%= t('hde') %>:</strong>
+  <%= @hazard.hde %>
+</p>
+
+<p>
+  <strong><%= t('hda') %>:</strong>
+  <%= @hazard.hda %>
+</p>
+
+<p>
+  <strong><%= t('cd') %>:</strong>
+  <%= @hazard.cd %>
+</p>
+
+<p>
+  <strong><%= t('rd') %>:</strong>
+  <%= @hazard.rd %>
+</p>
+
+<p>
+  <strong><%= t('pd') %>:</strong>
+  <%= @hazard.pd %>
+</p>
+
+<p>
+  <strong><%= t('pi') %>:</strong>
+  <%= @hazard.pi %>
+</p>
+
+<p>
+  <strong><%= t('pm') %>:</strong>
+  <%= @hazard.pm %>
+</p>
+
+<p>
+  <strong><%= t('pa') %>:</strong>
+  <%= @hazard.pa %>
+</p>
+
+<p>
+  <strong><%= t('prl') %>:</strong>
+  <%= @hazard.prl %>
+</p>
+
+<p>
+  <strong><%= t('pe') %>:</strong>
+  <%= @hazard.pe %>
+</p>
+
+<p>
+  <strong><%= t('ha') %>:</strong>
+  <%= @hazard.ha %>
+</p>
+
+<p>
+  <strong><%= t('eca') %>:</strong>
+  <%= @hazard.eca %>
+</p>
+
+<p>
+  <strong><%= t('remark') %>:</strong>
+  <%= @hazard.remark %>
+</p>
+
+<p>
+  <strong><%= t('operator') %>:</strong>
+  <%= User.find(@hazard.operator).fname %>
+</p>
+
+
+<%= link_to 'Edit', edit_hazard_path(@hazard) %> |
+<%= link_to 'Back', hazards_path %>

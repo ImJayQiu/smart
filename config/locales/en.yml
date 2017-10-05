@@ -1,5 +1,29 @@
 ---
 en:
+  staffs_management: Staffs Management
+  hazards_management: Hazards Management
+  hazardtypes_management: Hazard Type Management
+  import_hazards: Import Hazard Profiles
+  country: Country
+  htype: Hazad_Type
+  year: Year
+  hde: Houses_Destroyed
+  hda: Houses_Damaged
+  cd: Crop_Damaged
+  rd: Road_Damaged
+  pd: People_Dead
+  pi: People_Injured
+  pm: People_Missing
+  pa: People_Affected
+  prl: People_Relocated
+  pe: People_Evacuated
+  ha: Hospitals_Affected
+  eca: Education_Center_Affected
+  remark: Remark
+  operator: Operator
+  hazards_profile: Hazard Profile
+  department: Department
+  research_interest: Research Interest
   cscores_management: Scores Setting & Management 
   idle_class: "The course the you select is not exist, please check again !" 
   enrollcourses_management: Enroll Courses 
@@ -11,6 +35,7 @@ en:
   major_analysis: Students Analysis by Major
   students_analysis: Students Analysis 
   my_visas: My Visa Records 
+  change_password: Change Password
   major_code: Major Code 
   major_management: Major Management 
   major_name: Major Name (CN) 
@@ -96,9 +121,8 @@ en:
   City: 'City'
   Address: 'Address'
   Phone: 'Phone'
-  Operations: 'Operations' 
-  Ename: 'English Name'
-  Name: 'Chinese Name'
+  Operations: Operations 
+  Name: 'Full Name'
   Birthday: 'Birthday'
   Email: 'Email'
   Gender: 'Gender'
@@ -109,9 +133,9 @@ en:
   Users_management: 'Users Management'
   Students_management: 'Students Management'
   Lecturers_management: 'Lecturers Management'
-  Admins_management: 'Admin_management'
+  Admins_management: 'Admin management'
   unique: 'The %{var} has already been used !'
-  Code: 'Code'
+  Code: 'Staff Code'
   Major: 'Major'
   Role: 'User Group'
   personal_info: 'Personal Info.'

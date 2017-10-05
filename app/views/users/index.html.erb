@@ -11,10 +11,10 @@
 		<table class="table text-center">
 			<tr>
 				<th>
-					<%= button_to t('New_user'), new_user_path, method: :get %>
+					<%=# button_to t('New_user'), new_user_path, method: :get %>
 				</th>
 				<th>
-					<%= button_to t('Import_users'), import_users_path, method: :get %>
+					<%=# button_to t('Import_users'), import_users_path, method: :get %>
 				</th>
 			</tr>
 		</table>
@@ -24,10 +24,9 @@
 		<table id="example1" class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th><%=t('Code')%></th>
 					<th><%=t('Name')%></th>
-					<th><%=t('Major')%></th>
-					<th><%=t('Gender')%></th>
+					<th><%=t('country')%></th>
+					<th><%=t('department')%></th>
 					<th><%=t('Operations')%></th>
 				</tr>
 			</thead>
@@ -35,10 +34,9 @@
 			<tbody>
 			<% @users.each do |user| %>
 				<tr>
-				<td><%= user.code %></td>
-				<td><%= user.name %></td>
-				<td><%= user.major %></td>
-				<td><%= user.gender %></td>
+				<td><%= user.fname %></td>
+				<td><%= user.country %></td>
+				<td><%= user.department %></td>
 				<td>
 					<% if can? :show, user %>
 						<%= link_to t('Show'), user %> 
@@ -59,10 +57,9 @@
 
 			<tfoot>
 				<tr>
-					<th><%=t('Code')%></th>
 					<th><%=t('Name')%></th>
-					<th><%=t('Major')%></th>
-					<th><%=t('Gender')%></th>
+					<th><%=t('country')%></th>
+					<th><%=t('department')%></th>
 					<th><%=t('Operations')%></th>
 				</tr>
 			</tfoot>
@@ -73,10 +70,10 @@
 		<table class="table text-center">
 			<tr>
 				<th>
-					<%= button_to t('New_user'), new_user_path, method: :get %>
+					<%=# button_to t('New_user'), new_user_path, method: :get %>
 				</th>
 				<th>
-					<%= button_to t('Import_users'), import_users_path, method: :get %>
+					<%=# button_to t('Import_users'), import_users_path, method: :get %>
 				</th>
 			</tr>
 		</table>

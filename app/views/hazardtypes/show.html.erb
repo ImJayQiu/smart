@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @hazardtype.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hazardtype.name %>
+</p>
+
+<p>
+  <strong>Des:</strong>
+  <%= @hazardtype.des %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @hazardtype.remark %>
+</p>
+
+<%= link_to 'Edit', edit_hazardtype_path(@hazardtype) %> |
+<%= link_to 'Back', hazardtypes_path %>

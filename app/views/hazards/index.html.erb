@@ -1,0 +1,125 @@
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title"><%= t('hazards_profile') %></h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<% if can? :create, :hazard_profile %>
+			<table class="table text-center">
+				<tr>
+					<th>
+						<%= button_to t('New_record'), new_hazard_path, method: :get %>
+					</th>
+					<th>
+						<%= button_to t('Import_records'), import_hazards_path, method: :get %>
+					</th>
+				</tr>
+			</table>
+			<% end # if can? :create, hazards %>
+	</div>
+
+
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th><%=t('country')%></th>
+					<th><%=t('year')%></th>
+					<th title=<%=t('htype')%>>HT</th>
+					<th title=<%=t('hde')%>>HDE</th>
+					<th title=<%=t('hda')%>>HDA</th>
+					<th title=<%=t('cd')%>>CD</th>
+					<th title=<%=t('rd')%>>RD</th>
+					<th title=<%=t('pd')%>>PD</th>
+					<th title=<%=t('pi')%>>PI</th>
+					<th title=<%=t('pm')%>>PM</th>
+					<th title=<%=t('pa')%>>PA</th>
+					<th title=<%=t('prl')%>>PRL</th>
+					<th title=<%=t('pe')%>>PE</th>
+					<th title=<%=t('ha')%>>HA</th>
+					<th title=<%=t('eca')%>>ECA</th>
+					<th title=<%=t('Operations')%>>OP</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @hazards.each do |hazard| %>
+					<tr>
+						<td><%= hazard.country %></td>
+						<td><%= hazard.year %></td>
+						<td><%= hazard.htype %></td>
+						<td><%= hazard.hde %></td>
+						<td><%= hazard.hda %></td>
+						<td><%= hazard.cd %></td>
+						<td><%= hazard.rd %></td>
+						<td><%= hazard.pd %></td>
+						<td><%= hazard.pi %></td>
+						<td><%= hazard.pm %></td>
+						<td><%= hazard.pa %></td>
+						<td><%= hazard.prl %></td>
+						<td><%= hazard.pe %></td>
+						<td><%= hazard.ha %></td>
+						<td><%= hazard.eca %></td>
+						<td>
+							<% if can? :show, :hazard_profile %>
+								<%= link_to t('Show'), hazard %> | 
+							<% end %>
+							<% if can? :edit, :hazard_profile %>
+								<%= link_to t('Edit'), edit_hazard_path(hazard) %> | 
+							<% end %>
+							<% if can? :del, :hazard_profile %>
+								<%= link_to t('Del'), hazard, method: :delete, data: { confirm: t('del_confirm') } %>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+
+			<tfoot>
+				<thead>
+
+					<tr>
+						<th><%=t('country')%></th>
+						<th><%=t('year')%></th>
+						<th title=<%=t('htype')%>>HT</th>
+						<th title=<%=t('hde')%>>HDE</th>
+						<th title=<%=t('hda')%>>HDA</th>
+						<th title=<%=t('cd')%>>CD</th>
+						<th title=<%=t('rd')%>>RD</th>
+						<th title=<%=t('pd')%>>PD</th>
+						<th title=<%=t('pi')%>>PI</th>
+						<th title=<%=t('pm')%>>PM</th>
+						<th title=<%=t('pa')%>>PA</th>
+						<th title=<%=t('prl')%>>PRL</th>
+						<th title=<%=t('pe')%>>PE</th>
+						<th title=<%=t('ha')%>>HA</th>
+						<th title=<%=t('eca')%>>ECA</th>
+						<th title=<%=t('Operations')%>>OP</th>
+					</tr>
+
+
+				</thead>
+			</tfoot>
+		</table>
+	</div>
+	<!-- /.box-body -->
+
+	<% if can? :create, :hazard_profile %>
+		<div class="box-body">
+			<table class="table text-center">
+				<tr>
+					<th>
+						<%= button_to t('New_record'), new_hazard_path, method: :get %>
+					</th>
+					<th>
+						<%= button_to t('Import_records'), import_hazards_path, method: :get %>
+					</th>
+				</tr>
+			</table>
+		</div>
+		<% end # if can? :create, hazards %>
+
+
+</div>
+<!-- /.box -->
+

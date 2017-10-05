@@ -8,10 +8,11 @@
 		<%= devise_error_messages! %>
 
 	<div class="form-group has-feedback">
-		<%= f.text_field :code, autofocus: true, placeholder: "Code", class: "form-control" %>
-		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+		<%= f.text_field :fname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+		<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		<br />
 	</div>
+
 
 	<div class="form-group has-feedback">
 		<%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
@@ -20,12 +21,39 @@
 	</div>
 
 	<div class="form-group has-feedback">
+		<%= f.text_field :country, autofocus: true, placeholder: "Country", class: "form-control" %>
+		<span class="glyphicon glyphicon-globe form-control-feedback"></span>
+		<br />
+	</div>
+
+
+	<div class="form-group has-feedback">
+		<%= f.text_field :department, autofocus: true, placeholder: "Department", class: "form-control" %>
+		<span class="glyphicon glyphicon-home form-control-feedback"></span>
+		<br />
+	</div>
+
+	<div class="form-group has-feedback">
+		<%= f.text_field :code, autofocus: true, placeholder: "Staff Code (option)", class: "form-control" %>
+		<span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
+		<br />
+	</div>
+
+
+	<div class="form-group has-feedback">
+		<%= f.text_field :research, autofocus: true, placeholder: "Research Interest", class: "form-control" %>
+		<span class="glyphicon glyphicon-heart form-control-feedback"></span>
+		<br/>
+	</div>
+
+
+	<div class="form-group has-feedback">
 		<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		<% if @minimum_password_length %>
 			<em>(<%= @minimum_password_length %> characters minimum)</em>
 	<% end %>
-		<br />
+		<br/>
 	</div>
 
 	<div class="form-group has-feedback">

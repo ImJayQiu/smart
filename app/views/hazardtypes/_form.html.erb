@@ -1,0 +1,33 @@
+<%= form_for(@hazardtype) do |f| %>
+  <% if @hazardtype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hazardtype.errors.count, "error") %> prohibited this hazardtype from being saved:</h2>
+
+      <ul>
+      <% @hazardtype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :des %><br>
+    <%= f.text_field :des %>
+  </div>
+  <div class="field">
+    <%= f.label :remark %><br>
+    <%= f.text_field :remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

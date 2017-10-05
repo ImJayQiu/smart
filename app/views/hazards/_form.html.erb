@@ -1,0 +1,92 @@
+<%= form_for(@hazard) do |f| %>
+  <% if @hazard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hazard.errors.count, "error") %> prohibited this hazard from being saved:</h2>
+
+      <ul>
+      <% @hazard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user.role == 'Admin' %> 
+  <div class="field">
+    <%= t('country') %><br>
+    <%= f.text_field :country %>
+  </div>
+  <% else %>
+    <%= f.hidden_field :country, value: current_user.country %>
+    <% end # if current_user.role = "Admin" %> 
+
+  <div class="field">
+    <%= t('htype') %><br>
+    <%= f.text_field :htype %>
+  </div>
+  <div class="field">
+    <%= t('year') %><br>
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= t('hde') %><br>
+    <%= f.text_field :hde %>
+  </div>
+  <div class="field">
+    <%= t('hda') %><br>
+    <%= f.text_field :hda %>
+  </div>
+  <div class="field">
+    <%= t('cd') %><br>
+    <%= f.text_field :cd %>
+  </div>
+  <div class="field">
+    <%= t('rd') %><br>
+    <%= f.text_field :rd %>
+  </div>
+  <div class="field">
+    <%= t('pd') %><br>
+    <%= f.text_field :pd %>
+  </div>
+  <div class="field">
+    <%= t('pi') %><br>
+    <%= f.text_field :pi %>
+  </div>
+  <div class="field">
+    <%= t('pm') %><br>
+    <%= f.text_field :pm %>
+  </div>
+  <div class="field">
+    <%= t('pa') %><br>
+    <%= f.text_field :pa %>
+  </div>
+  <div class="field">
+    <%= t('prl') %><br>
+    <%= f.text_field :prl %>
+  </div>
+  <div class="field">
+    <%= t('pe') %><br>
+    <%= f.text_field :pe %>
+  </div>
+  <div class="field">
+    <%= t('ha') %><br>
+    <%= f.text_field :ha %>
+  </div>
+  <div class="field">
+    <%= t('eca') %><br>
+    <%= f.text_field :eca %>
+  </div>
+
+    <div class="field">
+    <%= t('remark') %><br>
+    <%= f.text_field :remark %>
+  </div>
+
+  <%= f.hidden_field :operator, value: current_user.id %>
+
+ 
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

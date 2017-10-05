@@ -21,45 +21,32 @@
 				<!--form role="form" -->
 				<div class="box-body">
 
-					<div class="form-group">
-						<%= t('Code') %>: 
-						<%= @user.code %>
-					</div>
-
-					<div class="form-group">
-						<%= t('Passport') %>:
-						<%= @user.passport %>
-					</div>
-
+				
 					<div class="form-group">
 						<%= t('Name') %>: 
-						<%= @user.name %>
+						<%= @user.fname %>
+					</div>
+
+                              		<div class="form-group">
+						<%= t('department') %>: 
+						<%= @user.department rescue nil %>
 					</div>
 
 					<div class="form-group">
-						<%= t('Gender') %>:
-						<%= @user.gender %>
+						<%= t('Code') %>: 
+						<%= @user.code rescue nil %>
 					</div>
 
+
 					<div class="form-group">
-						<%= t('Major') %>:
-						<%= @user.major %>
+						<%= t('research') %>:
+						<%= @user.research rescue nil %>
 					</div>
 
 					<div class="form-group">
 						<%= t('Role') %>:
-						<%= @user.role %>
+						<%= @user.role rescue nil %>
 					</div>
-					<div class="form-group">
-						<%= t('Birthday') %>:
-						<%= @user.birthday %>
-					</div>
-
-					<div class="form-group">
-						<%= t('enroll_date') %>:
-						<%= @user.enroll %>
-					</div>
-
 
 
 				</div>
@@ -78,34 +65,30 @@
 				<!-- form start -->
 				<!-- form role="form" -->
 				<div class="box-body">
-					<div class="form-group">
-						<%= t('Ename') %>: 
-						<%= @user.ename %>
-					</div>
 
 					<div class="form-group">
 						<%= t('Country') %>:
-						<%= @user.country %>
+						<%= @user.country rescue nil %>
 					</div>
 					<div class="form-group">
 						<%= t('Province') %>:
-						<%= @user.province %>
+						<%= @user.province rescue nil %>
 					</div>
 					<div class="form-group">
 						<%= t('City') %>:
-						<%= @user.city %>
+						<%= @user.city rescue nil %>
 					</div>
 					<div class="form-group">
 						<%= t('Address') %>:
-						<%= @user.address %>
+						<%= @user.address rescue nil %>
 					</div>
 					<div class="form-group">
 						<%= t('Phone') %>:
-						<%= @user.phone %>
+						<%= @user.phone rescue nil %>
 					</div>
 					<div class="form-group">
 						<%= t('Email') %>:
-						<%= @user.email %>
+						<%= @user.email rescue nil %>
 					</div>
 
 				</div>
@@ -149,23 +132,13 @@
 									<%= button_to t('Edit'), edit_user_path(@user), method: "get" %>
 								</td>
 
-								<% if can? :list, :students %>
+								<% if can? :list, :staffs %>
 									<td>
-									<%= button_to t('Students_management'), students_users_path, method: "get" %>
+									<%= button_to t('staffs_management'), staffs_users_path, method: "get" %>
 								</td>
-								<% end # if can? :list, :students %>
+								<% end # if can? :list, :staffs %>
 
-								<% if can? :list, :lecturers %>
-									<td>
-									<%= button_to t('Lecturers_management'), lecturers_users_path, method: "get" %>
-								</td>
-								<% end # if can? :list, :lecturers %>
-
-								<% if can? :list, :deans %>
-									<td>
-									<%= button_to t('Deans_management'), deans_users_path, method: "get" %>
-								</td>
-								<% end # if can? :list, :deans %>
+							
 
 								<td>
 									<%= button_to t('back_landing'), root_path, method: "get" %>

@@ -8,17 +8,17 @@
 
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 		<div class="form-group has-feedback">
-		<%= f.text_field :login, autofocus: true, placeholder: "学号/工号/电子邮件 | Code or Email", class: "form-control" %>
+		<%= f.text_field :login, autofocus: true, placeholder: "Email", class: "form-control" %>
 		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 	</div>
 	<div class="form-group has-feedback">
-		<%= f.password_field :password, autocomplete: "off", placeholder: "请输入密码 | Password", class: "form-control" %>
+		<%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
 		<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 	</div>
 	<div class="row">
 		<!-- /.col -->
 		<div class="col-xs-12">
-			<%= f.submit "进入系统 | LOG IN ", class: "btn btn-primary btn-block btn-flat" %>
+			<%= f.submit "LOG IN ", class: "btn btn-primary btn-block btn-flat" %>
 		</div>
 		<!-- /.col -->
 	</div>

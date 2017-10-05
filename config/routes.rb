@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-	resources :studentscores do
+  resources :countries
+  resources :hazardtypes
+	resources :hazards do
 		collection do
 			get :import
 			post :imported
@@ -61,9 +63,7 @@ Rails.application.routes.draw do
 
 	resources :users do
 		collection do
-			get :students
-			get :lecturers
-			get :deans
+			get :staffs
 			get :admins
 			get :import
 			get :new_user # get create_user form 

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  htype: MyString
+  year: MyString
+  hde: MyString
+  hda: MyString
+  crda: MyString
+  roda: MyString
+  pde: MyString
+  pin: MyString
+  pmiss: MyString
+  paff: MyString
+  prel: MyString
+  peva: MyString
+  hosaff: MyString
+  educaff: MyString
+  remakr: MyString
+
+two:
+  htype: MyString
+  year: MyString
+  hde: MyString
+  hda: MyString
+  crda: MyString
+  roda: MyString
+  pde: MyString
+  pin: MyString
+  pmiss: MyString
+  paff: MyString
+  prel: MyString
+  peva: MyString
+  hosaff: MyString
+  educaff: MyString
+  remakr: MyString

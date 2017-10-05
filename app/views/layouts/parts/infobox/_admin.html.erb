@@ -1,39 +1,22 @@
 
 <div class="row">
 
-	<%= link_to students_users_path do %>
+	<%= link_to staffs_users_path do %>
 	<div class="clearfix visible-sm-block"></div>
 	<div class="col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box">
-			<span class="info-box-icon bg-green"><i class="icon ion-university"></i></span>
+			<span class="info-box-icon bg-green"><i class="icon ion-group"></i></span>
 
 			<div class="info-box-content">
-				<span class="info-box-text"><%= t('students_qty')%></span>
-				<span class="info-box-number"><%= @student_qty %></span>
+				<span class="info-box-text"><%= t('staffs_qty')%></span>
+				<span class="info-box-number"><%= @users_qty %></span>
 			</div>
 			<!-- /.info-box-content -->
 		</div>
 		<!-- /.info-box -->
 	</div>
 	<!-- /.col -->
-	<% end # link_to students_users_path do %>
-	
-	<%= link_to lecturers_users_path do %>
-	<div class="clearfix visible-sm-block"></div>
-	<div class="col-md-3 col-sm-6 col-xs-12">
-		<div class="info-box">
-			<span class="info-box-icon bg-aqua"><i class="icon ion-person-stalker"></i></span>
-			<div class="info-box-content">
-				<span class="info-box-text"><%= t('lecturers_qty') %></span>
-				<span class="info-box-number"><%= @lecturer_qty %></span>
-			</div>
-			<!-- /.info-box-content -->
-		</div>
-		<!-- /.info-box -->
-	</div>
-	<!-- /.col -->
-	<% end # link_to lecturers_users_path do %>
-
+	<% end # link_to staffs_users_path do %>
 
 	<!-- fix for small devices only -->
 	<%= link_to renew_visas_path do %>
@@ -43,7 +26,7 @@
 			<span class="info-box-icon bg-red"><i class="ion ion-refresh"></i></span>
 
 			<div class="info-box-content">
-				<span class="info-box-text"><%= t('visa_renew') %></span>
+				<span class="info-box-text"><%= t('sample') %></span>
 				<span class="info-box-number"><%= $renews_count %></span>
 			</div>
 			<!-- /.info-box-content -->

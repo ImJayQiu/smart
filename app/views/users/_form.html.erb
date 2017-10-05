@@ -27,6 +27,46 @@
 				<div class="box-body">
 
 					<div class="form-group">
+						<%= f.label t('Name') %>
+						<% if can? :manage, :user_name %>
+							<%= f.text_field :fname, class: 'form-control' , required: true%>
+					<% else %>
+							<%= f.text_field :fname, class: 'form-control', disabled: true %>
+						<% end # if can? :manage, :user_name %>
+					</div>
+
+
+					<div class="form-group">
+						<%= f.label t('research_interest') %> :
+						<% if can? :manage, :user_research %>
+							<%= f.text_field :research, class: 'form-control', required: true%>
+					<% else %>
+							<%= f.text_field :research, class: 'form-control', disabled: true %>
+					<% end %>
+					</div>
+
+
+					<div class="form-group">
+						<%= f.label t('Country') %>
+						<% if can? :manage, :user_country %>
+						<%= f.text_field :country, class: 'form-control', required: true %>
+					<% else %>
+						<%= f.text_field :country, class: 'form-control', disabled: true %>
+					<% end %>
+
+					</div>
+
+					<div class="form-group">
+						<%= f.label t('department') %>
+						<% if can? :manage, :user_department %>
+							<%= f.text_field :department, class: 'form-control' , required: true %>
+					<% else %>
+							<%= f.text_field :department, class: 'form-control', disabled: true %>
+					<% end %>
+					</div>
+
+
+					<div class="form-group">
 						<%= f.label t('Code') %>
 						<% if can? :manage, :user_code %>
 							<%= f.text_field :code, class: 'form-control' , required: true%>
@@ -35,66 +75,7 @@
 					<% end %>
 					</div>
 
-					<div class="form-group">
-						<%= f.label t('Passport') %>
-						<% if can? :manage, :user_passport %>
-							<%= f.text_field :passport, class: 'form-control' , required: true%>
-					<% else %>
-							<%= f.text_field :passport, class: 'form-control', disabled: true %>
-					<% end %>
-					</div>
 
-					<div class="form-group">
-						<%= f.label t('Name') %>
-						<% if can? :manage, :user_name %>
-							<%= f.text_field :name, class: 'form-control' , required: true%>
-					<% else %>
-							<%= f.text_field :name, class: 'form-control', disabled: true %>
-						<% end # if can? :manage, :user_name %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('Gender') %> : 
-						<% if can? :manage, :user_gender %>
-							<%= f.select :gender, A::GENDER, class: 'form-control' , required: true%>
-					<% else %>
-							<%= f.select :gender, A::GENDER, class: 'form-control', disabled: true %>
-						<% end # if can? :manage, :user_gender %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('Major') %> :
-						<% if can? :manage, :user_major %>
-							<%= f.collection_select :major, Major.all, :code, :name, prompt: "- Select -" , required: true%>
-					<% else %>
-							<%= f.text_field :major, class: 'form-control', disabled: true %>
-					<% end %>
-					</div>
-
-
-					<div class="form-group">
-						<%= f.label t('Birthday') %>
-						<div class="input-group date">
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-							<%= f.text_field :birthday, class: 'form-control', id: "sdate" %>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('enroll_date') %>
-						<div class="input-group date">
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-							<% if can? :manage, :user_enroll %>
-								<%= f.text_field :enroll, class: 'form-control', id: "edate", required: true %>
-						<% else %>
-								<%= f.text_field :enroll, class: 'form-control', id: "datepicker", disabled: true %>
-							<% end # if can? :manage, :user_enroll %>
-						</div>
-					</div>
 
 				</div>
 			</div>
@@ -112,15 +93,6 @@
 				<!-- form start -->
 				<div class="box-body">
 
-					<div class="form-group">
-						<%= f.label t('Ename') %>
-						<%= f.text_field :ename, class: 'form-control' %>
-					</div>
-
-					<div class="form-group">
-						<%= f.label t('Country') %>
-						<%= f.text_field :country, class: 'form-control' %>
-					</div>
 
 					<div class="form-group">
 						<%= f.label t('Province') %>

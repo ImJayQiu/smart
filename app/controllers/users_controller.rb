@@ -10,24 +10,16 @@ class UsersController < ApplicationController
 	# GET /users.json
 
 	def index
-		@users = User.select(:id, :code, :name, :major, :gender, :role, :passport).all
-
+		@users = User.select(:id, :code, :fname, :country, :department, :role).all
 	end
 
-	def deans
-		@deans = User.where(role: "dean").select(:id, :code, :name, :major, :gender, :role, :passport).all
-	end
 
-	def lecturers
-		@lecturers = User.where(role: "lecturer").select(:id, :code, :name, :major, :gender, :role, :passport).all
-	end
-
-	def students
-		@students = User.where(role: "student").select(:id, :code, :name, :major, :gender, :role, :passport).all
+	def staffs
+		@staffs = User.where(role: "staff").select(:id, :code, :fname, :department, :country, :role).all
 	end
 
 	def admins
-		@admins = User.where(role: "admin").select(:id, :code, :name, :major, :gender, :role, :passport).all
+		@admins = User.where(role: "admin").select(:id, :code, :fname, :department, :country, :role).all
 	end
 
 	# GET /users/1
@@ -82,10 +74,10 @@ class UsersController < ApplicationController
 		respond_to do |format|
 
 			if @user.update(user_pw_params)
-				format.html { redirect_to @user, notice: '用户密码已经成功更改！ | User password was successfully updated.' }
+				format.html { redirect_to @user, notice: ' User password was successfully updated.' }
 				format.json { render :show, status: :ok, location: @user }
 			else
-				format.html { render :edit_password, notice:"两次输入的密码不一致，或者密码长度不符合要求，请重新输入！" }
+				format.html { render :edit_password, notice:"Something wrong, please try again !" }
 				format.json { render json: @user.errors, status: :unprocessable_entity }
 			end
 		end
@@ -104,7 +96,7 @@ class UsersController < ApplicationController
 
 		respond_to do |format|
 			if @user.save
-				format.html { redirect_to @user, notice: '用户添加成功！ | User was successfully created.' }
+				format.html { redirect_to @user, notice: 'User was successfully created.' }
 				format.json { render :show, status: :created, location: @user }
 			else
 				format.html { render :new_user }
@@ -139,7 +131,7 @@ class UsersController < ApplicationController
 		respond_to do |format|
 
 			if @user.update(user_params)
-				format.html { redirect_to @user, notice: '用户资料已经成功保存！| User was successfully updated.' }
+				format.html { redirect_to @user, notice: 'User was successfully updated.' }
 				format.json { render :show, status: :ok, location: @user }
 			else
 				format.html { render :edit }
@@ -154,7 +146,7 @@ class UsersController < ApplicationController
 	def destroy
 		@user.destroy
 		respond_to do |format|
-			format.html { redirect_to request.referrer, notice: '用户已经被成功删除！| User was successfully delete.' }
+			format.html { redirect_to request.referrer, notice: 'User was successfully delete.' }
 			format.json { head :no_content }
 		end
 	end
@@ -169,7 +161,7 @@ class UsersController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def user_params
-		params.require(:user).permit(:des, :enroll, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role)
+		params.require(:user).permit(:des, :research, :avatar, :phone, :address, :department, :code, :email, :fname, :gender, :city, :province, :country, :role)
 	end
 
 	def user_pw_params
@@ -177,7 +169,7 @@ class UsersController < ApplicationController
 	end
 
 	def new_user_params
-		params.require(:user).permit(:des, :enroll, :avatar, :phone, :address, :major, :code, :email, :name, :ename, :gender, :passport, :birthday, :city, :province, :country, :role, :password, :password_confirmation)
+		params.require(:user).permit(:des, :enroll, :avatar, :phone, :address, :code, :email, :fname, :sname, :gender, :birthday, :city, :province, :country, :research, :role, :password, :password_confirmation)
 	end
 
 

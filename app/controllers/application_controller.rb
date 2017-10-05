@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 	layout :layout_by_resource
 
 
-	$site_title = "DPU-CAIC"
+	$site_title = "SMART-RIMES"
 
 	rescue_from CanCan::AccessDenied do |exception|
 		respond_to do |format|
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def configure_permitted_parameters
-		added_attrs = [:code, :email, :password, :password_confirmation, :remember_me]
+		added_attrs = [:fname, :country, :department, :research, :code, :email, :password, :password_confirmation, :remember_me]
 		#devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
 		devise_parameter_sanitizer.for(:sign_up) << added_attrs
 		#devise_parameter_sanitizer.permit :account_update, keys: added_attrs

@@ -36,20 +36,20 @@
 					</div>
 
 					<div class="form-group">
-						<%= f.label t('Passport') %>
-						<% if can? :manage, :user_passport %>
-							<%= f.text_field :passport, class: 'form-control' , required: true%>
+						<%= f.label t('country') %>
+						<% if can? :manage, :user_country %>
+							<%= f.text_field :country, class: 'form-control' , required: true%>
 					<% else %>
-							<%= f.text_field :passport, class: 'form-control', disabled: true %>
+							<%= f.text_field :country, class: 'form-control', disabled: true %>
 					<% end %>
 					</div>
 
 					<div class="form-group">
 						<%= f.label t('Name') %>
 						<% if can? :manage, :user_name %>
-							<%= f.text_field :name, class: 'form-control' , required: true%>
+							<%= f.text_field :fname, class: 'form-control' , required: true%>
 					<% else %>
-							<%= f.text_field :name, class: 'form-control', disabled: true %>
+							<%= f.text_field :fname, class: 'form-control', disabled: true %>
 						<% end # if can? :manage, :user_name %>
 					</div>
 

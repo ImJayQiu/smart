@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hazard Types</h1>
+<div class="box-body">
+	<table id="example1" class="table table-bordered table-striped">
+		<thead>
+
+			<tr>
+				<th>Index</th>
+				<th>Code</th>
+				<th>Name</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @hazardtypes.each_with_index do |hazardtype,i| %>
+				<tr>
+					<td><%= i+1 %></td>
+					<td><%= hazardtype.code %></td>
+					<td><%= hazardtype.name %></td>
+					<td><%= link_to 'Show', hazardtype %></td>
+					<td><%= link_to 'Edit', edit_hazardtype_path(hazardtype) %></td>
+					<td><%= link_to 'Del', hazardtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br>
+
+	<%= link_to 'New Hazard Type', new_hazardtype_path %>

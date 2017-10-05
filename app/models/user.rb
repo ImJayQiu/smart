@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 
 	has_many :cschedules, primary_key: :code , foreign_key: :lecturer
-	has_many :visas, primary_key: :passport , foreign_key: :passport 
+#	has_many :visas, primary_key: :passport , foreign_key: :passport 
 	has_many :ustatuses, primary_key: :code , foreign_key: :code 
 
 	devise :database_authenticatable, :trackable, :validatable, :timeoutable, :registerable
@@ -19,12 +19,12 @@ class User < ActiveRecord::Base
 	strip_attributes :only => [:city], :regex => /["市", ""]/
 	strip_attributes :only => [:province], :regex => /["省", ""]/
 	strip_attributes :only => [:code], :regex => /[" ", ""]/
-	strip_attributes :only => [:passport], :regex => /[" ", ""]/
+#	strip_attributes :only => [:passport], :regex => /[" ", ""]/
 	strip_attributes :only => [:phone], :regex => /[" ", ""]/
 
-	validates :code, :passport, :major, :role, :name, :enroll, presence: true
-	validates :code, uniqueness: { message: I18n.t(:unique, :var => I18n.t('Code')) }
-	validates :passport, uniqueness: { message: I18n.t(:unique, :var => I18n.t('Passport')) }
+#	validates :code, :fname, presence: true
+#	validates :code, uniqueness: { message: I18n.t(:unique, :var => I18n.t('Code')) }
+#	validates :passport, uniqueness: { message: I18n.t(:unique, :var => I18n.t('Passport')) }
 	validates :email, uniqueness: { message: I18n.t(:unique, :var => I18n.t('Email')) }
 	validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 0.5.megabytes
 
